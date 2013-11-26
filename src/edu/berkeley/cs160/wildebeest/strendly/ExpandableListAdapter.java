@@ -2,7 +2,7 @@ package edu.berkeley.cs160.wildebeest.strendly;
 
 import java.util.HashMap;
 import java.util.List;
- 
+
 import android.content.Context;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;
