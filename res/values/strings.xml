@@ -4,15 +4,16 @@
     <string name="app_name">Strendly</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_log_items">Log Items</string>
-    
+
     <color name="grey">#808080</color>
-    
+
     <string name="searchbar">Search</string>
     <string name="Checkout">Checkout</string>
-    
     <string name="Blank"></string>
     <string name="item1">0</string>
     <string name="item2">0</string>
     <string name="item3">0</string>
+    <string name="title_activity_receipt">Receipt</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>

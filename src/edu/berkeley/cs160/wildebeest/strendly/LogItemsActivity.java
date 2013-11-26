@@ -5,7 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ExpandableListView;
 
 public class LogItemsActivity extends Activity {
@@ -31,6 +33,11 @@ public class LogItemsActivity extends Activity {
         // setting list adapter
         expListView.setAdapter(listAdapter);
     }
+    
+    public void receipt(View v) {
+		Intent i = new Intent(this, Receipt.class);
+		startActivity(i);
+	}
  
     /*
      * Preparing the list data
