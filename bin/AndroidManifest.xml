@@ -22,6 +22,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="edu.berkeley.cs160.wildebeest.strendly.LogItemsActivity"
+            android:label="@string/title_activity_log_items" >
+        </activity>
     </application>
 
 </manifest>
