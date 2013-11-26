@@ -16,18 +16,12 @@
         android:textColor="#FFFFFF"
         android:textSize="35sp" />
 
-    <ScrollView
+    <ListView
         android:id="@+id/scroll"
         android:layout_width="fill_parent"
         android:layout_height="274dp"
         android:layout_weight="0.54" >
-
-        <LinearLayout
-            android:id="@+id/gallery"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
-    </ScrollView>
+    </ListView>
 
     <Button
         android:id="@+id/logEntry"

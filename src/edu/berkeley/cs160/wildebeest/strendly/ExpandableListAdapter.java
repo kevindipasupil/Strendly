@@ -3,8 +3,11 @@ package edu.berkeley.cs160.wildebeest.strendly;
 import java.util.HashMap;
 import java.util.List;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -99,8 +102,16 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         return false;
     }
  
-    @Override
+    @SuppressLint("CommitPrefEdits")
+	@Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
+    	Log.d("ListClick", "ListClick" + groupPosition + childPosition + "");
+    	String key = groupPosition + "" + childPosition;
+    	SharedPreferences prefs = _context.getSharedPreferences("numItems", Context.MODE_PRIVATE);
+    	int value = prefs.getInt(key, 0);
+    	SharedPreferences.Editor editor = prefs.edit();
+    	editor.putInt(key, value + 1);
+    	editor.commit();
         return true;
     }
 }
