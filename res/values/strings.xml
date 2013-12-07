@@ -5,9 +5,14 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_log_items">Log Items</string>
     <string name="title_activity_receipt">Receipt</string>
+    <string name="desc">Image Icon for Title</string>
 
     <color name="grey">#808080</color>
     <color name="lightGrey">#B0B0B0</color>
+    <color name="yellow">#CCCC00</color>
+    <color name="mainbutton">#9CBA7F</color>
+    <color name="saddlebrown">#A0522D</color>
+    <color name="juniorNavy">#002859</color>
 
     <string name="searchbar">Search</string>
     <string name="Checkout">Checkout</string>
