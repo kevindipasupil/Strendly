@@ -34,21 +34,23 @@
         <requestFocus />
     </EditText>
 
-    <ExpandableListView
-        android:id="@+id/lvExp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="250dp"
-        android:childDivider="@color/lightGrey" />
-
     <Button
         android:id="@+id/checkout"
         android:layout_width="fill_parent"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="60dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="30dp"
         android:background="@drawable/custombutton_selector"
         android:onClick="receipt"
         android:text="@string/Checkout" />
+
+    <ExpandableListView
+        android:id="@+id/lvExp"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/checkout"
+        android:layout_marginTop="190dp"
+        android:childDivider="@color/lightGrey" />
 
 </RelativeLayout>

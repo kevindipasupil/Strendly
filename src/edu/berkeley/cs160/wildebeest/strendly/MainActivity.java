@@ -34,4 +34,9 @@ public class MainActivity extends Activity {
 		startActivity(i);
 	}
 
+	public void editItems(View v) {
+		Intent i = new Intent(this, EditItemsActivity.class);
+		startActivity(i);
+	}
+
 }

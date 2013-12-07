@@ -30,6 +30,10 @@
             android:name="edu.berkeley.cs160.wildebeest.strendly.Receipt"
             android:label="@string/title_activity_receipt" >
         </activity>
+        <activity
+            android:name="edu.berkeley.cs160.wildebeest.strendly.EditItemsActivity"
+            android:label="@string/title_activity_edit_items" >
+        </activity>
     </application>
 
 </manifest>

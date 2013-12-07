@@ -16,9 +16,10 @@
 
     <string name="searchbar">Search</string>
     <string name="Checkout">Checkout</string>
-    
     <string name="item1">0</string>
     <string name="item2">0</string>
     <string name="item3">0</string>
+    <string name="title_activity_edit_items">EditItemsActivity</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>

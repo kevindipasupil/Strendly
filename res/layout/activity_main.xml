@@ -34,7 +34,7 @@
 
     <Button
         android:id="@+id/logButton"
-        android:layout_width="275dp"
+        android:layout_width="350dp"
         android:layout_height="60dp"
         android:layout_marginTop="200dp"
         android:background="@drawable/custombutton_selector"
@@ -49,6 +49,16 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/custombutton_selector"
         android:text="View Statistics"
+        android:textSize="30sp" />
+    
+    <Button
+        android:id="@+id/editButton"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/custombutton_selector"
+        android:onClick="editItems"
+        android:text="Edit Items"
         android:textSize="30sp" />
 
 </LinearLayout>

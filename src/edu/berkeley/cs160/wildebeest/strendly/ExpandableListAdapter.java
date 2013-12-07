@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ExpandableListView;
 import android.widget.TextView;
  
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
@@ -120,6 +121,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
     @SuppressLint("CommitPrefEdits")
 	@Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
+    	//TODO: Add some sort of feedback!
     	Log.d("ListClick", "ListClick" + groupPosition + childPosition + "");
     	String key = groupPosition + "" + childPosition;
     	SharedPreferences prefs = _context.getSharedPreferences("numItems", Context.MODE_PRIVATE);
