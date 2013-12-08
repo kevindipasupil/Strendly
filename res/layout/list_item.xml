@@ -1,17 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="55dip"
     android:orientation="vertical" >
  
+	<Button 
+         android:id="@+id/minus"
+         android:layout_gravity="left"
+         android:layout_width="40dp"
+         android:layout_height="40dp"
+         android:text="Hello">
+    </Button>
     <TextView
         android:id="@+id/lblListItem"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="25sp"
-        android:paddingTop="5dp"
-        android:paddingBottom="5dp"
-        android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft"
-        android:textColor="#D0D0D0" />
+		android:layout_gravity="center"
+        android:textColor="#D0D0D0"     >
+     </TextView>
+     <Button 
+         android:id="@+id/plus"
+         android:layout_gravity="right"
+         android:layout_width="40dp"
+         android:layout_height="40dp"
+         android:text="asdkfjasdf">
+     </Button>
+        
  
-</LinearLayout>
+</FrameLayout>
