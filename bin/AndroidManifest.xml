@@ -34,6 +34,14 @@
             android:name="edu.berkeley.cs160.wildebeest.strendly.EditItemsActivity"
             android:label="@string/title_activity_edit_items" >
         </activity>
+        <activity
+            android:name="edu.berkeley.cs160.wildebeest.strendly.StatisticsActivity"
+            android:label="@string/title_activity_statistics" >
+        </activity>
+        <activity
+            android:name="edu.berkeley.cs160.wildebeest.strendly.Statistics2"
+            android:label="@string/title_activity_statistics2" >
+        </activity>
     </application>
 
 </manifest>

@@ -45,5 +45,10 @@ public class MainActivity extends Activity {
 		Intent i = new Intent(this, EditItemsActivity.class);
 		startActivity(i);
 	}
+	
+	public void statistics(View v) {
+		Intent i = new Intent(this, StatisticsActivity.class);
+		startActivity(i);
+	}
 
 }

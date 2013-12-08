@@ -18,11 +18,15 @@
     <color name="seagullBlue">#4ea0ab</color>
 
     <string name="searchbar">Search</string>
+    <string name="bargraph">Bar Graph</string>
+    <string name="piegraph">Pie Graph</string>
     <string name="Checkout">Checkout</string>
     <string name="item1">0</string>
     <string name="item2">0</string>
     <string name="item3">0</string>
     <string name="title_activity_edit_items">EditItemsActivity</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_statistics">StatisticsActivity</string>
+    <string name="title_activity_statistics2">Statistics2</string>
 
 </resources>
