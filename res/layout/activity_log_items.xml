@@ -35,14 +35,8 @@
         <Button
             android:id="@+id/checkout"
             style="@style/btnStyleSeagull"
-            android:layout_width="fill_parent"
-            android:layout_height="70dp"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="30dp"
             android:onClick="receipt"
-            android:text="@string/Checkout"
-            android:textSize="30sp" />
+            android:text="@string/Checkout" />
 
         <ExpandableListView
             android:id="@+id/lvExp"
