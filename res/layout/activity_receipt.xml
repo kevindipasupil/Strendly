@@ -19,13 +19,6 @@
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin" >
 
-        <ListView
-            android:id="@+id/scroll"
-            android:layout_width="fill_parent"
-            android:layout_height="274dp"
-            android:layout_weight="0.54" >
-        </ListView>
-
         <Button
             android:id="@+id/logEntry"
             style="@style/btnStyleSeagull"
@@ -36,6 +29,15 @@
             android:layout_marginTop="30dp"
             android:text="Log Entry"
             android:textSize="30sp" />
+
+        <ListView
+            android:id="@+id/scroll"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_above="@id/logEntry"
+            android:background="@color/white"
+            android:textColor="@color/darkGrey" >
+        </ListView>
     </RelativeLayout>
 
 </RelativeLayout>
