@@ -7,7 +7,9 @@
     <string name="title_activity_receipt">Receipt</string>
     <string name="desc">Image Icon for Title</string>
 
+    <color name="white">#ffffff</color>
     <color name="grey">#808080</color>
+    <color name="darkGrey">#333333</color>
     <color name="lightGrey">#B0B0B0</color>
     <color name="yellow">#CCCC00</color>
     <color name="mainbutton">#9CBA7F</color>

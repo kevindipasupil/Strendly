@@ -8,8 +8,13 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Point;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.Display;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ExpandableListView;
 
 public class LogItemsActivity extends Activity {
@@ -34,6 +39,14 @@ public class LogItemsActivity extends Activity {
  
         // setting list adapter
         expListView.setAdapter(listAdapter);
+        
+        // for moving the group indicator to the right
+        DisplayMetrics metrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(metrics);
+        int width = metrics.widthPixels;
+    	Log.d("WIDTH", "WIDTH IS " + width);
+        //this code for adjusting the group indicator into right side of the view
+        expListView.setIndicatorBoundsRelative(width - GetDipsFromPixel(114), width - GetDipsFromPixel(40));
     }
     
     public void receipt(View v) {
@@ -80,5 +93,13 @@ public class LogItemsActivity extends Activity {
         listDataChild.put(listDataHeader.get(0), pizzas); // Header, Child data
         listDataChild.put(listDataHeader.get(1), sandys);
         listDataChild.put(listDataHeader.get(2), salad);
+    }
+
+    public int GetDipsFromPixel(float pixels)
+    {
+        // Get the screen's density scale
+        final float scale = getResources().getDisplayMetrics().density;
+        // Convert the dps to pixels, based on density scale
+        return (int) (pixels * scale + 0.5f);
     }
 }

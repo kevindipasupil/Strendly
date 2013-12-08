@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/juniornavy_gradient"
+    android:background="@color/darkGrey"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -18,7 +18,7 @@
         android:layout_marginTop="20dp"
         android:padding="20dp"
         android:text="@string/title_activity_log_items"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/lightGrey"
         android:textSize="30sp"
         android:textStyle="bold" />
 
@@ -36,14 +36,15 @@
 
     <Button
         android:id="@+id/checkout"
+        style="@style/btnStyleSeagull"
         android:layout_width="fill_parent"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="30dp"
         android:layout_marginBottom="30dp"
-        android:background="@drawable/custombutton_selector"
+        android:layout_marginTop="30dp"
         android:onClick="receipt"
-        android:text="@string/Checkout" />
+        android:text="@string/Checkout"
+        android:textSize="30sp" />
 
     <ExpandableListView
         android:id="@+id/lvExp"
@@ -51,6 +52,7 @@
         android:layout_height="fill_parent"
         android:layout_above="@id/checkout"
         android:layout_marginTop="190dp"
-        android:childDivider="@color/lightGrey" />
+        android:childDivider="@color/lightGrey"
+        android:groupIndicator="@drawable/group_indicator" />
 
 </RelativeLayout>
