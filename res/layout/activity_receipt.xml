@@ -22,6 +22,7 @@
         <Button
             android:id="@+id/logEntry"
             style="@style/btnStyleSeagull"
+            android:onClick="home"
             android:text="Log Entry" />
 
         <ListView

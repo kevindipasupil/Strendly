@@ -5,10 +5,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -27,6 +27,11 @@ public class MainActivity extends Activity {
 	    TextView txt = (TextView) findViewById(R.id.strendly);  
 	    Typeface font = Typeface.createFromAsset(getAssets(), "fonts/FinalFantasyTacticsAdvance.ttf");  
 	    txt.setTypeface(font);
+	    
+	    //for letting the user know that the purchase was logged
+	    if(this.getIntent().getExtras() != null) {
+	        Toast.makeText(this, this.getIntent().getExtras().getString("msg"),Toast.LENGTH_LONG).show();
+	    }
 	}
 
 	@Override

@@ -46,7 +46,7 @@ public class LogItemsActivity extends Activity {
 		int width = metrics.widthPixels;
 		Log.d("WIDTH", "WIDTH IS " + width);
 		//this code for adjusting the group indicator into right side of the view
-		if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN_MR2) {
+		if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN_MR2) {
 			expListView.setIndicatorBounds(width - GetDipsFromPixel(114), width - GetDipsFromPixel(40));
 		} else {
 			expListView.setIndicatorBoundsRelative(width - GetDipsFromPixel(114), width - GetDipsFromPixel(40));
