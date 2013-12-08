@@ -1,12 +1,14 @@
 package edu.berkeley.cs160.wildebeest.strendly;
 
-import edu.berkeley.cs160.wildebeest.strendly.R;
-import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends Activity {
 
@@ -20,6 +22,11 @@ public class MainActivity extends Activity {
 		editor.clear();
 		editor.commit();
 		setContentView(R.layout.activity_main);
+
+		//uses custom font in assets/fonts
+	    TextView txt = (TextView) findViewById(R.id.strendly);  
+	    Typeface font = Typeface.createFromAsset(getAssets(), "fonts/FinalFantasyTacticsAdvance.ttf");  
+	    txt.setTypeface(font);
 	}
 
 	@Override

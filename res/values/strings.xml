@@ -15,6 +15,7 @@
     <color name="mainbutton">#9CBA7F</color>
     <color name="saddlebrown">#A0522D</color>
     <color name="juniorNavy">#002859</color>
+    <color name="seagullBlue">#4ea0ab</color>
 
     <string name="searchbar">Search</string>
     <string name="Checkout">Checkout</string>

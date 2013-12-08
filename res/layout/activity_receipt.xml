@@ -10,15 +10,17 @@
     android:paddingTop="@dimen/activity_vertical_margin" >
 
     <TextView
-        android:id="@+id/strendly"
+        android:id="@+id/receipt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:gravity="center_horizontal"
-        android:text="Receipt"
-        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:padding="20dp"
+        android:text="@string/title_activity_receipt"
         android:textColor="@color/lightGrey"
-        android:textSize="35sp" />
+        android:textSize="45sp"
+        android:textStyle="bold" />
 
     <ListView
         android:id="@+id/scroll"
@@ -31,9 +33,9 @@
         android:id="@+id/logEntry"
         style="@style/btnStyleSeagull"
         android:layout_width="fill_parent"
-        android:layout_height="60dp"
+        android:layout_height="70dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="30dp"
         android:layout_marginTop="30dp"
         android:text="Log Entry"
         android:textSize="30sp" />

@@ -33,7 +33,7 @@
             android:text="Strendly"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:textColor="@color/lightGrey"
-            android:textSize="60sp" />
+            android:textSize="100sp" />
     </LinearLayout>
 
     <Button
