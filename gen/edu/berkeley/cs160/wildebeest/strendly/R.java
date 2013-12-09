@@ -45,7 +45,7 @@ public final class R {
         public static final int logitems_searchbar=0x7f02000a;
     }
     public static final class id {
-        public static final int action_settings=0x7f090014;
+        public static final int action_settings=0x7f090016;
         public static final int addItem=0x7f090005;
         public static final int checkout=0x7f090008;
         public static final int editButton=0x7f09000f;
@@ -56,11 +56,13 @@ public final class R {
         public static final int itemName=0x7f090003;
         public static final int itemPrice=0x7f090004;
         public static final int lblListHeader=0x7f090000;
-        public static final int lblListItem=0x7f090013;
+        public static final int lblListItem=0x7f090014;
         public static final int logButton=0x7f09000d;
         public static final int logEntry=0x7f090011;
         public static final int log_items=0x7f090006;
         public static final int lvExp=0x7f090009;
+        public static final int minus=0x7f090013;
+        public static final int plus=0x7f090015;
         public static final int receipt=0x7f090010;
         public static final int scroll=0x7f090012;
         public static final int searchbar=0x7f090007;
