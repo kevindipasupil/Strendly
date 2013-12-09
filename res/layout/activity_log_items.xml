@@ -25,7 +25,7 @@
             android:layout_marginTop="114dp"
             android:background="@drawable/logitems_searchbar"
             android:paddingLeft="15dp"
-            android:text="@string/searchbar"
+            android:hint="@string/searchbar"
             android:textColor="@color/grey"
             android:textSize="20sp" >
 
