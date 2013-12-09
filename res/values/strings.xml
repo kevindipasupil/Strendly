@@ -17,6 +17,7 @@
     <color name="saddlebrown">#A0522D</color>
     <color name="juniorNavy">#002859</color>
     <color name="seagullBlue">#4ea0ab</color>
+    <color name="sailerBlue">#3B8686</color>
 
     <string name="searchbar">Search</string>
     <string name="Checkout">Checkout</string>
@@ -26,5 +27,6 @@
     <string name="title_activity_bar">BarActivity</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_pie">PieActivity</string>
+    <string name="title_activity_line">LineActivity</string>
 
 </resources>
