@@ -52,6 +52,7 @@
         <Button
             android:id="@+id/statsButton"
             style="@style/btnStyleSeagull"
+            android:onClick="stats"
             android:text="View Statistics" />
 
         <Button

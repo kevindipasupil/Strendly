@@ -23,5 +23,8 @@
     <string name="item1">0</string>
     <string name="item2">0</string>
     <string name="item3">0</string>
+    <string name="title_activity_bar">BarActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_pie">PieActivity</string>
 
 </resources>

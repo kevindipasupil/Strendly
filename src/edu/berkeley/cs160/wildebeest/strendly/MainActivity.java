@@ -50,5 +50,10 @@ public class MainActivity extends Activity {
 		Intent i = new Intent(this, EditItemsActivity.class);
 		startActivity(i);
 	}
+	
+	public void stats(View v) {
+		Intent i = new Intent(this, BarActivity.class);
+		startActivity(i);
+	}
 
 }
