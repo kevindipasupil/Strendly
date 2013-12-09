@@ -8,8 +8,6 @@ import com.androidplot.xy.PointLabelFormatter;
 import com.androidplot.xy.SimpleXYSeries;
 import com.androidplot.xy.XYPlot;
 import com.androidplot.xy.XYSeries;
-import com.echo.holographlibrary.Bar;
-import com.echo.holographlibrary.BarGraph;
 
 import android.os.Bundle;
 import android.app.Activity;
