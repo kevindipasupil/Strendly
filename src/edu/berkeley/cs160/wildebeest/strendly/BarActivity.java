@@ -1,6 +1,45 @@
 package edu.berkeley.cs160.wildebeest.strendly;
 
 import java.util.ArrayList;
+
+import java.text.DateFormatSymbols;
+import java.text.FieldPosition;
+import java.text.NumberFormat;
+import java.text.ParsePosition;
+import java.util.Arrays;
+import java.util.Iterator;
+
+import android.app.Activity;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.PointF;
+import android.os.Bundle;
+import android.util.Pair;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.SeekBar;
+import android.widget.Spinner;
+
+import com.androidplot.LineRegion;
+import com.androidplot.pie.PieChart;
+import com.androidplot.pie.Segment;
+import com.androidplot.pie.SegmentFormatter;
+import com.androidplot.ui.AnchorPosition;
+import com.androidplot.ui.SeriesRenderer;
+import com.androidplot.ui.SizeLayoutType;
+import com.androidplot.ui.SizeMetrics;
+import com.androidplot.ui.TextOrientationType;
+import com.androidplot.ui.widget.TextLabelWidget;
+import com.androidplot.util.PixelUtils;
+import com.androidplot.xy.*;
+import com.androidplot.ui.XLayoutStyle;
+import com.androidplot.ui.YLayoutStyle;
 import java.util.Arrays;
 
 import com.androidplot.xy.LineAndPointFormatter;
@@ -22,52 +61,38 @@ public class BarActivity extends Activity {
 	
 	private XYPlot plot;
 	
+	
+	private PieChart pie;
+
+    private Segment s1;
+    private Segment s2;
+    private Segment s3;
+    private Segment s4;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_bar);
 		
+		Button b = (Button) findViewById(R.id.bargraph);
+		b.setEnabled(false);
+		
+		ArrayList<Bar> points = new ArrayList<Bar>();
+		Bar d = new Bar();
+		d.setColor(Color.parseColor("#99CC00"));
+		d.setName("Test1");
+		d.setValue(10);
+		Bar d2 = new Bar();
+		d2.setColor(Color.parseColor("#FFBB33"));
+		d2.setName("Test2");
+		d2.setValue(20);
+		points.add(d);
+		points.add(d2);
+
+		BarGraph g = (BarGraph)findViewById(R.id.graph);
+		g.setBars(points);
 		
 		
-		 // fun little snippet that prevents users from taking screenshots
-        // on ICS+ devices :-)
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_SECURE,
-                                 WindowManager.LayoutParams.FLAG_SECURE);
- 
-        setContentView(R.layout.activity_bar);
- 
-        // initialize our XYPlot reference:
-        plot = (XYPlot) findViewById(R.id.mySimpleXYPlot);
- 
-        // Create a couple arrays of y-values to plot:
-        Number[] series1Numbers = {1, 8, 5, 2, 7, 4};
-        Number[] series2Numbers = {4, 6, 3, 8, 2, 10};
- 
-        // Turn the above arrays into XYSeries':
-        XYSeries series1 = new SimpleXYSeries(
-                Arrays.asList(series1Numbers),          // SimpleXYSeries takes a List so turn our array into a List
-                SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, // Y_VALS_ONLY means use the element index as the x value
-                "Series1");                             // Set the display title of the series
- 
-        // same as above
-        XYSeries series2 = new SimpleXYSeries(Arrays.asList(series2Numbers), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Series2");
- 
-        // Create a formatter to use for drawing a series using LineAndPointRenderer
-        // and configure it from xml:
-        LineAndPointFormatter series1Format = new LineAndPointFormatter(Color.RED, Color.GREEN, Color.BLUE, null);
-
- 
-        // add a new series' to the xyplot:
-        plot.addSeries(series1, series1Format);
- 
-        // same as above:
-        LineAndPointFormatter series2Format = new LineAndPointFormatter(Color.RED, Color.GREEN, Color.YELLOW, null);
-
-        plot.addSeries(series2, series2Format);
- 
-        // reduce the number of range labels
-        plot.setTicksPerRangeLabel(3);
-        plot.getGraphWidget().setDomainLabelOrientation(-45);
 	}
 
 	@Override
@@ -79,6 +104,10 @@ public class BarActivity extends Activity {
 
 	public void pie(View v) {
 		Intent i = new Intent(this, PieActivity.class);
+		startActivity(i);
+	}
+	public void line(View v) {
+		Intent i = new Intent(this, LineActivity.class);
 		startActivity(i);
 	}
 }

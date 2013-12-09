@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Button;
 
 public class PieActivity extends Activity {
 
@@ -13,6 +14,9 @@ public class PieActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_pie);
+		
+		Button b = (Button) findViewById(R.id.piegraph);
+		b.setEnabled(false);
 		
 //		PieGraph pg = (PieGraph)findViewById(R.id.graph);
 //		PieSlice slice = new PieSlice();
@@ -38,6 +42,10 @@ public class PieActivity extends Activity {
 
 	public void bar(View v) {
 		Intent i = new Intent(this, BarActivity.class);
+		startActivity(i);
+	}
+	public void line(View v) {
+		Intent i = new Intent(this, LineActivity.class);
 		startActivity(i);
 	}
 }
