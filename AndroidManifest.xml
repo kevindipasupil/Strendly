@@ -16,7 +16,7 @@
         <activity
             android:name="edu.berkeley.cs160.wildebeest.strendly.MainActivity"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.NoTitleBar">
+            android:theme="@android:style/Theme.NoTitleBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,17 +26,27 @@
         <activity
             android:name="edu.berkeley.cs160.wildebeest.strendly.LogItemsActivity"
             android:label="@string/title_activity_log_items"
-            android:theme="@android:style/Theme.NoTitleBar">
+            android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
             android:name="edu.berkeley.cs160.wildebeest.strendly.Receipt"
             android:label="@string/title_activity_receipt"
-            android:theme="@android:style/Theme.NoTitleBar">
+            android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
         <activity
             android:name="edu.berkeley.cs160.wildebeest.strendly.EditItemsActivity"
             android:label="@string/title_activity_edit_items"
-            android:theme="@android:style/Theme.NoTitleBar">
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="edu.berkeley.cs160.wildebeest.strendly.BarActivity"
+            android:label="@string/title_activity_bar" 
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="edu.berkeley.cs160.wildebeest.strendly.PieActivity"
+            android:label="@string/title_activity_pie" 
+            android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
     </application>
 
