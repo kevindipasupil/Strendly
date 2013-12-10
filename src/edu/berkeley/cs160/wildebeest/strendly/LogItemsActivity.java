@@ -13,6 +13,9 @@ import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ExpandableListView;
@@ -52,6 +55,16 @@ public class LogItemsActivity extends Activity {
 		} else {
 			expListView.setIndicatorBoundsRelative(width - GetDipsFromPixel(114), width - GetDipsFromPixel(40));
 		}
+	}
+	
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		//getMenuInflater().inflate(R.menu.main, menu);
+		MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_actions, menu);
+		return true;
+        //return super.onCreateOptionsMenu(menu);
 	}
 
 	public void receipt(View v) {
@@ -107,4 +120,25 @@ public class LogItemsActivity extends Activity {
 		// Convert the dps to pixels, based on density scale
 		return (int) (pixels * scale + 0.5f);
 	}
+	
+	@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Take appropriate action for each action item click
+        switch (item.getItemId()) {
+        case R.id.log:
+        	Intent i = new Intent(this, LogItemsActivity.class);
+    		startActivity(i);
+            return true;
+        case R.id.edit:
+        	Intent i1 = new Intent(this, EditItemsActivity.class);
+        	startActivity(i1);
+            return true;
+        case R.id.stats:
+        	Intent i2 = new Intent(this, BarActivity.class);
+    		startActivity(i2);
+            return true;
+        default:
+            return super.onOptionsItemSelected(item);
+        }
+    }
 }

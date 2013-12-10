@@ -19,6 +19,10 @@
     <color name="seagullBlue">#4ea0ab</color>
     <color name="sailerBlue">#3B8686</color>
 
+    <string name="edit">Edit</string>
+    <string name="log">Log</string>
+    <string name="stats">Statistics</string>
+            
     <string name="searchbar">Search</string>
     <string name="Checkout">Checkout</string>
     <string name="item1">0</string>

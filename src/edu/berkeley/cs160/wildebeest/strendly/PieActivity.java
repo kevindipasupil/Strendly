@@ -8,6 +8,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -39,8 +41,9 @@ public class PieActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.pie, menu);
-		return true;
+		MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_actions, menu);
+        return true;
 	}
 
 	public void bar(View v) {
@@ -51,4 +54,25 @@ public class PieActivity extends Activity {
 		Intent i = new Intent(this, LineActivity.class);
 		startActivity(i);
 	}
+	
+	@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Take appropriate action for each action item click
+        switch (item.getItemId()) {
+        case R.id.log:
+        	Intent i = new Intent(this, LogItemsActivity.class);
+    		startActivity(i);
+            return true;
+        case R.id.edit:
+        	Intent i1 = new Intent(this, EditItemsActivity.class);
+        	startActivity(i1);
+            return true;
+        case R.id.stats:
+        	Intent i2 = new Intent(this, BarActivity.class);
+    		startActivity(i2);
+            return true;
+        default:
+            return super.onOptionsItemSelected(item);
+        }
+    }
 }

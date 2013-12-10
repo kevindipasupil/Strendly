@@ -69,7 +69,7 @@ public class LoginActivity extends Activity {
         
         if (x.equals(p)) {
         	
-        	Intent i = new Intent(this, MainActivity.class);
+        	Intent i = new Intent(this, BarActivity.class);
     		startActivity(i);
         } else {
         	Toast.makeText(getApplicationContext(), "Wrong password, please try again.", 
