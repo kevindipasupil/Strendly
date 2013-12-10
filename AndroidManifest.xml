@@ -48,6 +48,11 @@
             android:label="@string/title_activity_pie" 
             android:theme="@android:style/Theme.NoTitleBar" >
         </activity>
+        <activity
+            android:name="edu.berkeley.cs160.wildebeest.strendly.LineActivity"
+            android:label="@string/title_activity_line" 
+            android:theme="@android:style/Theme.NoTitleBar" >
+        </activity>
     </application>
 
 </manifest>
