@@ -28,5 +28,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_pie">PieActivity</string>
     <string name="title_activity_line">LineActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_register">RegisterActivity</string>
 
 </resources>
