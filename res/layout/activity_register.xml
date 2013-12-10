@@ -17,10 +17,23 @@
   				android:paddingTop="5dip"
   				android:paddingBottom="5dip">
   				<!-- Logo Start-->
-  				<ImageView android:src="@drawable/ic_launcher"
-  							android:layout_width="wrap_content"
-  							android:layout_height="wrap_content"
-  							android:layout_marginLeft="10dip"/>
+  				<ImageView
+		            android:id="@+id/icon"
+		            android:layout_width="wrap_content"
+		            android:layout_height="fill_parent"
+		            android:layout_marginLeft="40dp"
+		            android:layout_marginRight="10dp"
+		            android:contentDescription="@string/desc"
+		            android:src="@drawable/ic_launcher" />
+		
+		        <TextView
+		            android:id="@+id/strendly"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="Strendly"
+		            android:textAppearance="?android:attr/textAppearanceLarge"
+		            android:textColor="@color/lightGrey"
+		            android:textSize="100sp" />
   				<!-- Logo Ends -->
   		</LinearLayout>
   		<!--  Header Ends -->
