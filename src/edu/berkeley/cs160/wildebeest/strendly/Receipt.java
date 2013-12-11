@@ -41,6 +41,7 @@ public class Receipt extends Activity {
 		sandwhichNum = 0;
 		saladNum = 0;
 		populateScrollView();
+		
 		final Button button = (Button) findViewById(R.id.logEntry);
 		button.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {

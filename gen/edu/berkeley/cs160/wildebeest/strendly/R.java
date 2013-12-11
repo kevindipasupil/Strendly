@@ -18,7 +18,7 @@ public final class R {
         public static final int lightGrey=0x7f070003;
         public static final int mainbutton=0x7f070005;
         public static final int saddlebrown=0x7f070006;
-        public static final int sailerBlue=0x7f070009;
+        public static final int sailorBlue=0x7f070009;
         public static final int seagullBlue=0x7f070008;
         public static final int white=0x7f070000;
         public static final int yellow=0x7f070004;
@@ -44,8 +44,8 @@ public final class R {
         public static final int arrow_down=0x7f020000;
         public static final int arrow_right=0x7f020001;
         public static final int arrow_up=0x7f020002;
-        public static final int cstmbtn_plusminus_reg=0x7f020003;
-        public static final int custom_btn_seagull=0x7f020004;
+        public static final int custom_btn_seagull=0x7f020003;
+        public static final int custombutton_plusminus=0x7f020004;
         public static final int custombutton_regular=0x7f020005;
         public static final int custombutton_selected=0x7f020006;
         public static final int custombutton_selector=0x7f020007;
@@ -215,5 +215,6 @@ public final class R {
         public static final int AppTheme=0x7f050001;
         public static final int activityTitle=0x7f050003;
         public static final int btnStyleSeagull=0x7f050002;
+        public static final int receiptList=0x7f050004;
     }
 }
