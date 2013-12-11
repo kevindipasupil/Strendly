@@ -139,27 +139,28 @@ public final class R {
         public static final int statistics=0x7f08000a;
     }
     public static final class string {
-        public static final int Checkout=0x7f04000a;
+        public static final int Checkout=0x7f040011;
         public static final int action_settings=0x7f040001;
         public static final int app_name=0x7f040000;
-        public static final int desc=0x7f040005;
-        public static final int edit=0x7f040006;
-        public static final int hello_world=0x7f04000f;
-        public static final int item1=0x7f04000b;
-        public static final int item2=0x7f04000c;
-        public static final int item3=0x7f04000d;
-        public static final int log=0x7f040007;
-        public static final int searchbar=0x7f040009;
-        public static final int stats=0x7f040008;
-        public static final int title_activity_bar=0x7f04000e;
-        public static final int title_activity_edit_items=0x7f040004;
-        public static final int title_activity_line=0x7f040011;
-        public static final int title_activity_log_items=0x7f040002;
-        public static final int title_activity_login=0x7f040012;
-        public static final int title_activity_pie=0x7f040010;
-        public static final int title_activity_receipt=0x7f040003;
-        public static final int title_activity_register=0x7f040013;
-        public static final int title_activity_statistics=0x7f040014;
+        public static final int desc=0x7f04000c;
+        public static final int edit=0x7f04000d;
+        public static final int hello_world=0x7f040015;
+        public static final int item1=0x7f040012;
+        public static final int item2=0x7f040013;
+        public static final int item3=0x7f040014;
+        public static final int log=0x7f04000e;
+        public static final int searchbar=0x7f040010;
+        public static final int stats=0x7f04000f;
+        public static final int title_activity_bar=0x7f040009;
+        public static final int title_activity_edit_items=0x7f040008;
+        public static final int title_activity_line=0x7f04000b;
+        public static final int title_activity_log_items=0x7f040005;
+        public static final int title_activity_login=0x7f040002;
+        public static final int title_activity_main=0x7f040004;
+        public static final int title_activity_pie=0x7f04000a;
+        public static final int title_activity_receipt=0x7f040006;
+        public static final int title_activity_register=0x7f040003;
+        public static final int title_activity_statistics=0x7f040007;
     }
     public static final class style {
         /** 
