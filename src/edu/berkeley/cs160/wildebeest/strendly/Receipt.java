@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 
 public class Receipt extends Activity {
@@ -52,6 +53,8 @@ public class Receipt extends Activity {
                 editor.putInt(format + "sandwhich", sandwhichNum);
                 editor.putInt(format + "salad", saladNum);
                 editor.commit();
+                Toast.makeText(getApplicationContext(), "Receipt Logged to History",
+						   Toast.LENGTH_LONG).show();
             }
         });
 	}
