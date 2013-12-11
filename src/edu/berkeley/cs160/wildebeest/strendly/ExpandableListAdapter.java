@@ -72,49 +72,53 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 				editTxtListChild.setText(childText);
 			}
 		}
+		
 		if (this._context.getClass().getSimpleName().equals("LogItemsActivity")) {
 			TextView txtListChild = (TextView) convertView.findViewById(R.id.lblListItem);
 			txtListChild.setText(childText);
-			
+
 			Button increaseQuantityImageView = (Button)convertView.findViewById(R.id.minus);
 			increaseQuantityImageView.setOnClickListener(new View.OnClickListener() {
 
-				  @Override
-				  public void onClick(View view) {
-					  Log.d("e", "ListClick" + groupPosition + childPosition + "");
-						String key = groupPosition + "" + childPosition;
-						Log.d("e", key);
-						SharedPreferences prefs = _context.getSharedPreferences("numItems", Context.MODE_PRIVATE);
-						int value = prefs.getInt(key, 0);
-						Log.d("e", value + "");
-						SharedPreferences.Editor editor = prefs.edit();
-						editor.putInt(key, value - 1);
-						editor.commit();
-						Log.d("e", prefs.getInt(key, 0) + "");
-						Toast.makeText(_context.getApplicationContext(), "Minus Tapped",
-								   Toast.LENGTH_LONG).show();
-				  }
-				});
-			
+				@Override
+				public void onClick(View view) {
+					Log.d("e", "ListClick" + groupPosition + childPosition + "");
+					String key = groupPosition + "" + childPosition;
+					Log.d("e", key);
+					SharedPreferences prefs = _context.getSharedPreferences("numItems", Context.MODE_PRIVATE);
+					int value = prefs.getInt(key, 0);
+					Log.d("e", value + "");
+					SharedPreferences.Editor editor = prefs.edit();
+					editor.putInt(key, value - 1);
+					editor.commit();
+					Log.d("e", prefs.getInt(key, 0) + "");
+					Toast.makeText(_context.getApplicationContext(), "Minus Tapped",
+							Toast.LENGTH_LONG).show();
+				}
+			});
+
 			Button decreaseQuantityImageView = (Button)convertView.findViewById(R.id.plus);
 			decreaseQuantityImageView.setOnClickListener(new View.OnClickListener() {
 
-				  @Override
-				  public void onClick(View view) {
-					  Log.d("e", "ListClick" + groupPosition + childPosition + "");
-						String key = groupPosition + "" + childPosition;
-						Log.d("e", key);
-						SharedPreferences prefs = _context.getSharedPreferences("numItems", Context.MODE_PRIVATE);
-						int value = prefs.getInt(key, 0);
-						Log.d("e", value + "");
-						SharedPreferences.Editor editor = prefs.edit();
-						editor.putInt(key, value + 1);
-						editor.commit();
-						Log.d("e", prefs.getInt(key, 0) + "");
-						Toast.makeText(_context.getApplicationContext(), "Plus Tapped",
-								   Toast.LENGTH_LONG).show();
-				  }
-				});
+				@Override
+				public void onClick(View view) {
+					Log.d("e", "ListClick" + groupPosition + childPosition + "");
+					String key = groupPosition + "" + childPosition;
+					Log.d("e", key);
+					SharedPreferences prefs = _context.getSharedPreferences("numItems", Context.MODE_PRIVATE);
+					int value = prefs.getInt(key, 0);
+					Log.d("e", value + "");
+					SharedPreferences.Editor editor = prefs.edit();
+					editor.putInt(key, value + 1);
+					editor.commit();
+					Log.d("e", prefs.getInt(key, 0) + "");
+					Toast.makeText(_context.getApplicationContext(), "Plus Tapped",
+							Toast.LENGTH_LONG).show();
+				}
+			});
+		} else if (this._context.getClass().getSimpleName().equals("EditItemsActivity")) {
+			EditText editTxtListChild = (EditText) convertView.findViewById(R.id.itemName);
+			editTxtListChild.setText(childText);
 		}
 		return convertView;
 	}

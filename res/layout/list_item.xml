@@ -2,15 +2,17 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="70dp"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:padding="8dp" >
 
     <Button
         android:id="@+id/minus"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_gravity="left"
         android:background="@drawable/cstmbtn_plusminus_reg"
-        android:text="-" >
+        android:text="-"
+        android:textSize="45sp" >
     </Button>
 
     <TextView
@@ -24,11 +26,12 @@
 
     <Button
         android:id="@+id/plus"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_gravity="right"
         android:background="@drawable/cstmbtn_plusminus_reg"
-        android:text="+" >
+        android:text="+"
+        android:textSize="40sp" >
     </Button>
 
 </FrameLayout>

@@ -6,7 +6,7 @@
 
     <EditText
         android:id="@+id/itemName"
-        android:layout_width="250dp"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="left"
         android:hint="Item Price"
