@@ -127,6 +127,7 @@ public final class R {
         public static final int pie=0x7f080007;
         public static final int receipt=0x7f080008;
         public static final int register=0x7f080009;
+        public static final int statistics=0x7f08000a;
     }
     public static final class string {
         public static final int Checkout=0x7f04000a;
