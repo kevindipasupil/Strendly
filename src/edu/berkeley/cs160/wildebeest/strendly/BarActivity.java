@@ -2,58 +2,18 @@ package edu.berkeley.cs160.wildebeest.strendly;
 
 import java.util.ArrayList;
 
-import java.text.DateFormatSymbols;
-import java.text.FieldPosition;
-import java.text.NumberFormat;
-import java.text.ParsePosition;
-import java.util.Arrays;
-import java.util.Iterator;
-
 import android.app.Activity;
 import android.graphics.Color;
-import android.graphics.Paint;
-import android.graphics.PointF;
 import android.os.Bundle;
-import android.util.Pair;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemSelectedListener;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
-import android.widget.SeekBar;
-import android.widget.Spinner;
-
-import com.androidplot.LineRegion;
 import com.androidplot.pie.PieChart;
 import com.androidplot.pie.Segment;
-import com.androidplot.pie.SegmentFormatter;
-import com.androidplot.ui.AnchorPosition;
-import com.androidplot.ui.SeriesRenderer;
-import com.androidplot.ui.SizeLayoutType;
-import com.androidplot.ui.SizeMetrics;
-import com.androidplot.ui.TextOrientationType;
-import com.androidplot.ui.widget.TextLabelWidget;
-import com.androidplot.util.PixelUtils;
-import com.androidplot.xy.*;
-import com.androidplot.ui.XLayoutStyle;
-import com.androidplot.ui.YLayoutStyle;
-import java.util.Arrays;
-
-import com.androidplot.xy.LineAndPointFormatter;
-import com.androidplot.xy.PointLabelFormatter;
-import com.androidplot.xy.SimpleXYSeries;
 import com.androidplot.xy.XYPlot;
-import com.androidplot.xy.XYSeries;
 import com.echo.holographlibrary.Bar;
 import com.echo.holographlibrary.BarGraph;
 
-import android.os.Bundle;
-import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;

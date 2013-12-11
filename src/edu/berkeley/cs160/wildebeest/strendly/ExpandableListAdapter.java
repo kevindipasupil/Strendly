@@ -12,8 +12,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
@@ -41,7 +44,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 	}
 
 	@Override
-	public View getChildView(int groupPosition, final int childPosition,
+	public View getChildView(final int groupPosition, final int childPosition,
 			boolean isLastChild, View convertView, ViewGroup parent) {
 
 		final String childText = (String) getChild(groupPosition, childPosition);
@@ -66,18 +69,48 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 				EditText editTxtListChild = (EditText) convertView.findViewById(R.id.itemName);
 				editTxtListChild.setText(childText);
 			}
-			
 		}
+		if (this._context.getClass().getSimpleName().equals("LogItemsActivity")) {
+			Button increaseQuantityImageView = (Button)convertView.findViewById(R.id.minus);
+			increaseQuantityImageView.setOnClickListener(new View.OnClickListener() {
 
+				  @Override
+				  public void onClick(View view) {
+					  Log.d("e", "ListClick" + groupPosition + childPosition + "");
+						String key = groupPosition + "" + childPosition;
+						Log.d("e", key);
+						SharedPreferences prefs = _context.getSharedPreferences("numItems", Context.MODE_PRIVATE);
+						int value = prefs.getInt(key, 0);
+						Log.d("e", value + "");
+						SharedPreferences.Editor editor = prefs.edit();
+						editor.putInt(key, value - 1);
+						editor.commit();
+						Log.d("e", prefs.getInt(key, 0) + "");
+						Toast.makeText(_context.getApplicationContext(), "Minus Tapped",
+								   Toast.LENGTH_LONG).show();
+				  }
+				});
+			
+			Button decreaseQuantityImageView = (Button)convertView.findViewById(R.id.plus);
+			decreaseQuantityImageView.setOnClickListener(new View.OnClickListener() {
 
-
-		// for alternating item row colors
-		//        if (groupPosition % 2 == 1) {
-		//            convertView.setBackgroundColor(Color.parseColor("#3366CC"));  
-		//        } else {
-		//        	convertView.setBackgroundColor(Color.parseColor("#6666CC"));  
-		//        }
-		
+				  @Override
+				  public void onClick(View view) {
+					  Log.d("e", "ListClick" + groupPosition + childPosition + "");
+						String key = groupPosition + "" + childPosition;
+						Log.d("e", key);
+						SharedPreferences prefs = _context.getSharedPreferences("numItems", Context.MODE_PRIVATE);
+						int value = prefs.getInt(key, 0);
+						Log.d("e", value + "");
+						SharedPreferences.Editor editor = prefs.edit();
+						editor.putInt(key, value + 1);
+						editor.commit();
+						Log.d("e", prefs.getInt(key, 0) + "");
+						Toast.makeText(_context.getApplicationContext(), "Plus Tapped",
+								   Toast.LENGTH_LONG).show();
+				  }
+				});
+		}
 		return convertView;
 	}
 
@@ -136,13 +169,13 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 	@Override
 	public boolean isChildSelectable(int groupPosition, int childPosition) {
 		//TODO: Add some sort of feedback!
-		Log.d("ListClick", "ListClick" + groupPosition + childPosition + "");
-		String key = groupPosition + "" + childPosition;
-		SharedPreferences prefs = _context.getSharedPreferences("numItems", Context.MODE_PRIVATE);
-		int value = prefs.getInt(key, 0);
-		SharedPreferences.Editor editor = prefs.edit();
-		editor.putInt(key, value + 1);
-		editor.commit();
+//		Log.d("e", "ListClick" + groupPosition + childPosition + "");
+//		String key = groupPosition + "" + childPosition;
+//		SharedPreferences prefs = _context.getSharedPreferences("numItems", Context.MODE_PRIVATE);
+//		int value = prefs.getInt(key, 0);
+//		SharedPreferences.Editor editor = prefs.edit();
+//		editor.putInt(key, value + 1);
+//		editor.commit();
 		return true;
 	}
 }

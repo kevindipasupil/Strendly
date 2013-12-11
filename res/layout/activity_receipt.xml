@@ -30,8 +30,8 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_above="@id/logEntry"
-            android:background="@color/white"
-            android:textColor="@color/darkGrey" >
+            android:background="@color/darkGrey"
+            android:textColor="@color/white" >
         </ListView>
     </RelativeLayout>
 

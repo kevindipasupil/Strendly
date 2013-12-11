@@ -66,7 +66,7 @@ public class Receipt extends Activity {
 		for(Map.Entry<String,?> entry : keys.entrySet()){
 		            Log.d("map values",entry.getKey() + ": " + 
 		                                   entry.getValue().toString());
-		            int properVal = (Integer) entry.getValue() / 2;
+		            int properVal = (Integer) entry.getValue();
 		            if(entry.getKey().equals("00")) {
 		            	listView_data.add("Pepperoni Pizza" + " (" + String.valueOf(properVal) + ")");
 		            } else if(entry.getKey().equals("01")) {
@@ -112,7 +112,7 @@ public class Receipt extends Activity {
 		            	saladNum = saladNum + 1;
 		            }   
 		 }
-        scrollView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1 , listView_data));
+        scrollView.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, listView_data));
 	}
 
 	@Override
