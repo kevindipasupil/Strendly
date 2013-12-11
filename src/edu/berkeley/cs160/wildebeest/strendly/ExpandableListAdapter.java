@@ -73,6 +73,9 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 			}
 		}
 		if (this._context.getClass().getSimpleName().equals("LogItemsActivity")) {
+			TextView txtListChild = (TextView) convertView.findViewById(R.id.lblListItem);
+			txtListChild.setText(childText);
+			
 			Button increaseQuantityImageView = (Button)convertView.findViewById(R.id.minus);
 			increaseQuantityImageView.setOnClickListener(new View.OnClickListener() {
 
@@ -113,8 +116,6 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 				  }
 				});
 		}
-		TextView txtListChild = (TextView) convertView.findViewById(R.id.lblListItem);
-		txtListChild.setText(childText);
 		return convertView;
 	}
 
