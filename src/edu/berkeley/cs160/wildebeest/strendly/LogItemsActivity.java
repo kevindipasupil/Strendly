@@ -62,7 +62,7 @@ public class LogItemsActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		//getMenuInflater().inflate(R.menu.main, menu);
 		MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.main_actions, menu);
+        //inflater.inflate(R.menu.main_actions, menu);
 		return true;
         //return super.onCreateOptionsMenu(menu);
 	}
