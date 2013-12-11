@@ -11,6 +11,7 @@ public final class R {
     public static final class attr {
     }
     public static final class color {
+        public static final int buttonRed=0x7f07000a;
         public static final int darkGrey=0x7f070002;
         public static final int grey=0x7f070001;
         public static final int juniorNavy=0x7f070007;
@@ -58,7 +59,6 @@ public final class R {
     }
     public static final class id {
         public static final int action_settings=0x7f090028;
-        public static final int addItem=0x7f090007;
         public static final int barGraph=0x7f090020;
         public static final int bargraph=0x7f090002;
         public static final int btnLogin=0x7f090011;
@@ -84,7 +84,7 @@ public final class R {
         public static final int logEntry=0x7f090018;
         public static final int log_items=0x7f090008;
         public static final int lvExp=0x7f09000b;
-        public static final int lvExpEdit=0x7f090006;
+        public static final int lvExpEdit=0x7f090007;
         public static final int minus=0x7f090023;
         public static final int pager=0x7f09001f;
         public static final int pass=0x7f090010;
@@ -95,6 +95,7 @@ public final class R {
         public static final int reg_email=0x7f09001b;
         public static final int reg_fullname=0x7f09001a;
         public static final int reg_password=0x7f09001c;
+        public static final int saveChanges=0x7f090006;
         public static final int scroll=0x7f090019;
         public static final int searchbar=0x7f090009;
         public static final int stats=0x7f090029;
