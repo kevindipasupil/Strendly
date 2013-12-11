@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -26,22 +27,11 @@ public class EditItemsActivity extends Activity {
 	List<String> listDataHeader;
 	HashMap<String, List<String>> listDataChild;
 
+	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_edit_items);
-
-//		Button addButton = (Button)findViewById(R.id.addItem);
-//		final EditText itemEdit   = (EditText)findViewById(R.id.itemName);
-//
-//		addButton.setOnClickListener(
-//				new View.OnClickListener()
-//				{
-//					public void onClick(View view)
-//					{
-//						Log.v("EditText", itemEdit.getText().toString());
-//					}
-//				});
 
 		// get the listview
 		expListView = (ExpandableListView) findViewById(R.id.lvExpEdit);

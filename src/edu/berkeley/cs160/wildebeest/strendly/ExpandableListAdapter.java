@@ -34,6 +34,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
 	@Override
 	public Object getChild(int groupPosition, int childPosititon) {
+		Log.d("e", this._listDataChild.get(this._listDataHeader.get(groupPosition))
+				.get(childPosititon));
 		return this._listDataChild.get(this._listDataHeader.get(groupPosition))
 				.get(childPosititon);
 	}
@@ -47,7 +49,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 	public View getChildView(final int groupPosition, final int childPosition,
 			boolean isLastChild, View convertView, ViewGroup parent) {
 
-		final String childText = (String) getChild(groupPosition, childPosition);
+		String childText = (String) getChild(groupPosition, childPosition);
 
 		LayoutInflater infalInflater;
 
@@ -111,6 +113,8 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 				  }
 				});
 		}
+		TextView txtListChild = (TextView) convertView.findViewById(R.id.lblListItem);
+		txtListChild.setText(childText);
 		return convertView;
 	}
 
@@ -149,14 +153,6 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 				.findViewById(R.id.lblListHeader);
 		lblListHeader.setTypeface(null, Typeface.BOLD);
 		lblListHeader.setText(headerTitle);
-
-		// for alternating item row colors
-		//        if (groupPosition % 2 == 1) {
-		//            convertView.setBackgroundColor(Color.parseColor("#336699"));  
-		//        } else {
-		//        	convertView.setBackgroundColor(Color.parseColor("#666699"));  
-		//        }
-
 		return convertView;
 	}
 
@@ -168,14 +164,6 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 	@SuppressLint("CommitPrefEdits")
 	@Override
 	public boolean isChildSelectable(int groupPosition, int childPosition) {
-		//TODO: Add some sort of feedback!
-//		Log.d("e", "ListClick" + groupPosition + childPosition + "");
-//		String key = groupPosition + "" + childPosition;
-//		SharedPreferences prefs = _context.getSharedPreferences("numItems", Context.MODE_PRIVATE);
-//		int value = prefs.getInt(key, 0);
-//		SharedPreferences.Editor editor = prefs.edit();
-//		editor.putInt(key, value + 1);
-//		editor.commit();
 		return true;
 	}
 }
