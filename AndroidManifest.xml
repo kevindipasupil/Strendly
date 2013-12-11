@@ -51,13 +51,15 @@
         <activity
             android:name="edu.berkeley.cs160.wildebeest.strendly.MainActivity"
             android:label="@string/title_activity_login" >
-            
         </activity>
         <activity
             android:name="edu.berkeley.cs160.wildebeest.strendly.RegisterActivity"
-            android:label="@string/title_activity_register" 
+            android:label="@string/title_activity_register"
             android:theme="@android:style/Theme.NoTitleBar" >
-            
+        </activity>
+        <activity
+            android:name="edu.berkeley.cs160.wildebeest.strendly.StatisticsActivity"
+            android:label="@string/title_activity_statistics" >
         </activity>
     </application>
 

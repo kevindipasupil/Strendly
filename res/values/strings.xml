@@ -22,7 +22,6 @@
     <string name="edit">Edit</string>
     <string name="log">Log</string>
     <string name="stats">Statistics</string>
-            
     <string name="searchbar">Search</string>
     <string name="Checkout">Checkout</string>
     <string name="item1">0</string>
@@ -34,5 +33,6 @@
     <string name="title_activity_line">LineActivity</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_register">RegisterActivity</string>
+    <string name="title_activity_statistics">StatisticsActivity</string>
 
 </resources>

@@ -57,43 +57,44 @@ public final class R {
         public static final int popup_black=0x7f02000e;
     }
     public static final class id {
-        public static final int action_settings=0x7f090024;
+        public static final int action_settings=0x7f090025;
         public static final int addItem=0x7f090007;
         public static final int bargraph=0x7f090002;
         public static final int btnLogin=0x7f090011;
         public static final int btnRegister=0x7f09001d;
         public static final int checkout=0x7f09000a;
-        public static final int edit=0x7f090027;
+        public static final int edit=0x7f090028;
         public static final int editButton=0x7f090016;
         public static final int edit_items=0x7f090005;
         public static final int graph=0x7f090001;
         public static final int header=0x7f09000c;
         public static final int icon=0x7f09000d;
         public static final int iconAndTitle=0x7f090013;
-        public static final int itemName=0x7f090022;
-        public static final int itemPrice=0x7f090023;
+        public static final int itemName=0x7f090023;
+        public static final int itemPrice=0x7f090024;
         public static final int lblListHeader=0x7f090000;
-        public static final int lblListItem=0x7f090020;
+        public static final int lblListItem=0x7f090021;
         public static final int linegraph=0x7f090004;
         public static final int link_to_login=0x7f09001e;
         public static final int link_to_register=0x7f090012;
-        public static final int log=0x7f090026;
+        public static final int log=0x7f090027;
         public static final int logButton=0x7f090014;
         public static final int logEntry=0x7f090018;
         public static final int log_items=0x7f090008;
         public static final int lvExp=0x7f09000b;
         public static final int lvExpEdit=0x7f090006;
-        public static final int minus=0x7f09001f;
+        public static final int minus=0x7f090020;
+        public static final int pager=0x7f09001f;
         public static final int pass=0x7f090010;
         public static final int piegraph=0x7f090003;
-        public static final int plus=0x7f090021;
+        public static final int plus=0x7f090022;
         public static final int receipt=0x7f090017;
         public static final int reg_email=0x7f09001b;
         public static final int reg_fullname=0x7f09001a;
         public static final int reg_password=0x7f09001c;
         public static final int scroll=0x7f090019;
         public static final int searchbar=0x7f090009;
-        public static final int stats=0x7f090025;
+        public static final int stats=0x7f090026;
         public static final int statsButton=0x7f090015;
         public static final int strendly=0x7f09000e;
         public static final int user=0x7f09000f;
@@ -109,12 +110,16 @@ public final class R {
         public static final int activity_pie=0x7f030007;
         public static final int activity_receipt=0x7f030008;
         public static final int activity_register=0x7f030009;
-        public static final int header_gradient=0x7f03000a;
-        public static final int line_point_formatter_with_plf1=0x7f03000b;
-        public static final int line_point_formatter_with_plf2=0x7f03000c;
-        public static final int list_group=0x7f03000d;
-        public static final int list_item=0x7f03000e;
-        public static final int list_item_edit_items=0x7f03000f;
+        public static final int activity_statistics=0x7f03000a;
+        public static final int fragment_bar_graph=0x7f03000b;
+        public static final int fragment_line_graph=0x7f03000c;
+        public static final int fragment_pie_chart=0x7f03000d;
+        public static final int header_gradient=0x7f03000e;
+        public static final int line_point_formatter_with_plf1=0x7f03000f;
+        public static final int line_point_formatter_with_plf2=0x7f030010;
+        public static final int list_group=0x7f030011;
+        public static final int list_item=0x7f030012;
+        public static final int list_item_edit_items=0x7f030013;
     }
     public static final class menu {
         public static final int bar=0x7f080000;
@@ -127,6 +132,7 @@ public final class R {
         public static final int pie=0x7f080007;
         public static final int receipt=0x7f080008;
         public static final int register=0x7f080009;
+        public static final int statistics=0x7f08000a;
     }
     public static final class string {
         public static final int Checkout=0x7f04000a;
@@ -149,6 +155,7 @@ public final class R {
         public static final int title_activity_pie=0x7f040010;
         public static final int title_activity_receipt=0x7f040003;
         public static final int title_activity_register=0x7f040013;
+        public static final int title_activity_statistics=0x7f040014;
     }
     public static final class style {
         /** 
