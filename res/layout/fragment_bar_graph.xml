@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darkGrey"
+    android:orientation="vertical" >
+    
+    <TextView
+        android:id="@+id/statistics"
+        style="@style/activityTitle"
+        android:text="@string/title_activity_statistics" />
+
+    <com.echo.holographlibrary.BarGraph
+        android:id="@+id/barGraph"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_centerVertical="true" />
+
+</RelativeLayout>

@@ -25,39 +25,39 @@
         </activity>
         <activity
             android:name="edu.berkeley.cs160.wildebeest.strendly.LogItemsActivity"
-            android:label="" >
+            android:label="@string/title_activity_log_items"  >
         </activity>
         <activity
             android:name="edu.berkeley.cs160.wildebeest.strendly.Receipt"
-            android:label="@string/title_activity_receipt"
-            android:theme="@android:style/Theme.NoTitleBar" >
+            android:label="@string/title_activity_receipt" >
         </activity>
         <activity
             android:name="edu.berkeley.cs160.wildebeest.strendly.EditItemsActivity"
-            android:label="" >
+            android:label="@string/title_activity_edit_items"  >
         </activity>
         <activity
             android:name="edu.berkeley.cs160.wildebeest.strendly.BarActivity"
-            android:label="" >
+            android:label="@string/title_activity_bar"  >
         </activity>
         <activity
             android:name="edu.berkeley.cs160.wildebeest.strendly.PieActivity"
-            android:label="" >
+            android:label="@string/title_activity_pie"  >
         </activity>
         <activity
             android:name="edu.berkeley.cs160.wildebeest.strendly.LineActivity"
-            android:label="" >
+            android:label="@string/title_activity_line"  >
         </activity>
         <activity
             android:name="edu.berkeley.cs160.wildebeest.strendly.MainActivity"
-            android:label="@string/title_activity_login" >
-            
+            android:label="@string/title_activity_main" >
         </activity>
         <activity
             android:name="edu.berkeley.cs160.wildebeest.strendly.RegisterActivity"
-            android:label="@string/title_activity_register" 
             android:theme="@android:style/Theme.NoTitleBar" >
-            
+        </activity>
+        <activity
+            android:name="edu.berkeley.cs160.wildebeest.strendly.StatisticsActivity"
+            android:label="@string/title_activity_statistics" >
         </activity>
     </application>
 

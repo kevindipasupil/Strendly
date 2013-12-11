@@ -72,13 +72,13 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 				editTxtListChild.setText(childText);
 			}
 		}
+		
 		if (this._context.getClass().getSimpleName().equals("LogItemsActivity")) {
 			TextView txtListChild = (TextView) convertView.findViewById(R.id.lblListItem);
 			txtListChild.setText(childText);
-			
+
 			Button increaseQuantityImageView = (Button)convertView.findViewById(R.id.minus);
 			increaseQuantityImageView.setOnClickListener(new View.OnClickListener() {
-
 				  @Override
 				  public void onClick(View view) {
 						String key = groupPosition + "" + childPosition;
@@ -105,8 +105,10 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 						editor.commit();
 						Toast.makeText(_context.getApplicationContext(), "Plus Tapped",
 								   Toast.LENGTH_LONG).show();
-				  }
-				});
+				  }});
+		} else if (this._context.getClass().getSimpleName().equals("EditItemsActivity")) {
+			EditText editTxtListChild = (EditText) convertView.findViewById(R.id.itemName);
+			editTxtListChild.setText(childText);
 		}
 		return convertView;
 	}

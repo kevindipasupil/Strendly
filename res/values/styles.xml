@@ -42,5 +42,9 @@
         <item name="android:padding">20dp</item>
         <item name="android:background">@color/seagullBlue</item>
     </style>
+    
+    <style name="receiptList" >
+        <item name="android:textColor">@color/lightGrey</item>
+    </style>
 
 </resources>

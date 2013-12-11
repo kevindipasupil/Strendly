@@ -26,9 +26,9 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		//uses custom font in assets/fonts
-	    TextView txt = (TextView) findViewById(R.id.strendly);  
-	    Typeface font = Typeface.createFromAsset(getAssets(), "fonts/FinalFantasyTacticsAdvance.ttf");  
-	    txt.setTypeface(font);
+//	    TextView txt = (TextView) findViewById(R.id.strendly);  
+//	    Typeface font = Typeface.createFromAsset(getAssets(), "fonts/FinalFantasyTacticsAdvance.ttf");  
+//	    txt.setTypeface(font);
 	    
 	    //for letting the user know that the purchase was logged
 	    if(this.getIntent().getExtras() != null) {
@@ -57,7 +57,7 @@ public class MainActivity extends Activity {
 	}
 	
 	public void stats(View v) {
-		Intent i = new Intent(this, BarActivity.class);
+		Intent i = new Intent(this, StatisticsActivity.class);
 		startActivity(i);
 	}
 	

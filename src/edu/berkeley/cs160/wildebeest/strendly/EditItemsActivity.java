@@ -1,6 +1,8 @@
 package edu.berkeley.cs160.wildebeest.strendly;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -55,6 +57,16 @@ public class EditItemsActivity extends Activity {
 		} else {
 			expListView.setIndicatorBoundsRelative(width - GetDipsFromPixel(114), width - GetDipsFromPixel(40));
 		}
+
+		final Button button = (Button) findViewById(R.id.saveChanges);
+		button.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				//goes back to the main screen
+				Bundle bundle = new Bundle(); bundle.putString("msg", "The changes were successfully saved.");
+				startActivity(new Intent(v.getContext(), MainActivity.class).putExtras(bundle)); 
+				finish();
+			}
+		});
 	}
 
 	@Override

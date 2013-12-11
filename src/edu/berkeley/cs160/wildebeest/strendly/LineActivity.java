@@ -37,6 +37,10 @@ public class LineActivity extends Activity {
 		p.setX(10);
 		p.setY(4);
 		l.addPoint(p);
+		p = new LinePoint(3,6);
+		l.addPoint(p);
+		p = new LinePoint(1,2);
+		l.addPoint(p);
 		l.setColor(Color.parseColor("#FFBB33"));
 
 		LineGraph li = (LineGraph)findViewById(R.id.graph);

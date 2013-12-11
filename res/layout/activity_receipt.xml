@@ -27,11 +27,12 @@
 
         <ListView
             android:id="@+id/scroll"
+            style="@style/receiptList"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_above="@id/logEntry"
-            android:background="@color/darkGrey"
-            android:textColor="@color/white" >
+            android:background="@color/white"
+            android:textColor="@color/darkGrey" >
         </ListView>
     </RelativeLayout>
 
