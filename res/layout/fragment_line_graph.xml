@@ -2,15 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ff8400"
+    android:background="@color/darkGrey"
     android:orientation="vertical" >
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:gravity="center"
-        android:text="Line Graph"
-        android:textSize="20dp" />
+    <com.echo.holographlibrary.LineGraph
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:id="@+id/lineGraph"/>
 
 </RelativeLayout>
