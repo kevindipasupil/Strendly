@@ -81,16 +81,12 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
 				  @Override
 				  public void onClick(View view) {
-					  Log.d("e", "ListClick" + groupPosition + childPosition + "");
 						String key = groupPosition + "" + childPosition;
-						Log.d("e", key);
 						SharedPreferences prefs = _context.getSharedPreferences("numItems", Context.MODE_PRIVATE);
 						int value = prefs.getInt(key, 0);
-						Log.d("e", value + "");
 						SharedPreferences.Editor editor = prefs.edit();
 						editor.putInt(key, value - 1);
 						editor.commit();
-						Log.d("e", prefs.getInt(key, 0) + "");
 						Toast.makeText(_context.getApplicationContext(), "Minus Tapped",
 								   Toast.LENGTH_LONG).show();
 				  }
@@ -101,16 +97,12 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
 				  @Override
 				  public void onClick(View view) {
-					  Log.d("e", "ListClick" + groupPosition + childPosition + "");
 						String key = groupPosition + "" + childPosition;
-						Log.d("e", key);
 						SharedPreferences prefs = _context.getSharedPreferences("numItems", Context.MODE_PRIVATE);
 						int value = prefs.getInt(key, 0);
-						Log.d("e", value + "");
 						SharedPreferences.Editor editor = prefs.edit();
 						editor.putInt(key, value + 1);
 						editor.commit();
-						Log.d("e", prefs.getInt(key, 0) + "");
 						Toast.makeText(_context.getApplicationContext(), "Plus Tapped",
 								   Toast.LENGTH_LONG).show();
 				  }
