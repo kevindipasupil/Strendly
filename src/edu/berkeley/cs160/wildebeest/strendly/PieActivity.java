@@ -30,12 +30,12 @@ public class PieActivity extends Activity {
 		pg.addSlice(slice);
 		slice = new PieSlice();
 		slice.setColor(Color.parseColor("#FFBB33"));
-		slice.setValue(3);
+		slice.setValue(1);
 		pg.addSlice(slice);
-		slice = new PieSlice();
-		slice.setColor(Color.parseColor("#AA66CC"));
-		slice.setValue(8);
-		pg.addSlice(slice);
+		//slice = new PieSlice();
+		//slice.setColor(Color.parseColor("#AA66CC"));
+		//slice.setValue(8);
+		//pg.addSlice(slice);
 	}
 
 	@Override
