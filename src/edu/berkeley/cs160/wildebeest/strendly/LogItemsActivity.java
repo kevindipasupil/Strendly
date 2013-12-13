@@ -29,6 +29,7 @@ public class LogItemsActivity extends Activity {
 	List<String> listDataHeader;
 	HashMap<String, List<String>> listDataChild;
 	private List<String> allItems = new ArrayList<String>();
+	public static boolean created = false;
 
 	@TargetApi(18)
 	@Override
@@ -43,7 +44,9 @@ public class LogItemsActivity extends Activity {
 		// preparing list data
 		prepareListData();
 		// initializes item history to 0
-		initNumItemHist();
+		if (!created) {
+			initNumItemHist();
+		}
 
 		listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
 
@@ -129,6 +132,7 @@ public class LogItemsActivity extends Activity {
 			SharedPreferences prefs = getSharedPreferences("numItems", MODE_PRIVATE);
 			SharedPreferences.Editor editor = prefs.edit();
 			editor.putInt(key, 0);
+			editor.commit();
 			boolean b = editor.commit();
 			Log.d("IS IT COMMITED?", "" + b);
 		}

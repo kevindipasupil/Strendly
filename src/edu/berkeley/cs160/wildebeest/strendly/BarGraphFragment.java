@@ -38,8 +38,8 @@ public class BarGraphFragment extends Fragment {
 
 		SharedPreferences prefs = getActivity().getApplicationContext().getSharedPreferences("numItems", Context.MODE_PRIVATE);
 //		Map<String,?> keys = prefs.getAll();
-		Log.d("MAP COUNT STUFF YEAH", "THE COUNT IS " + prefs.getAll().size());
-		ArrayList<Map.Entry<String,?>> topFiveItems = sortTopFive(prefs.getAll());
+		Log.d("BarGraph: MAP COUNT", "THE COUNT IS " + prefs.getAll().size());
+//		ArrayList<Map.Entry<String,?>> topFiveItems = sortTopFive(prefs.getAll());
 		ArrayList<Bar> points = new ArrayList<Bar>();
 //
 //		for(Map.Entry<String,?> entry : keys.entrySet()) {
@@ -51,15 +51,26 @@ public class BarGraphFragment extends Fragment {
 //			points.add(d);
 //		}
 
-		for(Map.Entry<String,?> entry : topFiveItems) {
-			Bar d = new Bar();
-			int properVal = (Integer) entry.getValue();
-			d.setColor(Color.parseColor("#99CC00"));
-			d.setName(entry.getKey());
-			Log.d("VALUEESSSSS", "Val should be " + properVal);
-			d.setValue(properVal);
-			points.add(d);
-		}
+//		for(Map.Entry<String,?> entry : topFiveItems) {
+//			Bar d = new Bar();
+//			int properVal = (Integer) entry.getValue();
+//			d.setColor(Color.parseColor("#99CC00"));
+//			d.setName(entry.getKey());
+//			Log.d("VALUEESSSSS", "Val should be " + properVal);
+//			d.setValue(properVal);
+//			points.add(d);
+//		}
+
+		Bar d = new Bar();
+		d.setColor(Color.parseColor("#99CC00"));
+		d.setName("Pepperoni Pizza");
+		d.setValue(20);
+		Bar d2 = new Bar();
+		d2.setColor(Color.parseColor("#FFBB33"));
+		d2.setName("Turkey Cranberry");
+		d2.setValue(10);
+		points.add(d);
+		points.add(d2);
 
 		BarGraph g = (BarGraph)v.findViewById(R.id.barGraph);
 		g.setBars(points);

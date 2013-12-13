@@ -77,11 +77,11 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 			TextView txtListChild = (TextView) convertView.findViewById(R.id.lblListItem);
 			txtListChild.setText(childText);
 
-			Button increaseQuantityImageView = (Button)convertView.findViewById(R.id.minus);
-			increaseQuantityImageView.setOnClickListener(new View.OnClickListener() {
+			Button decreaseQuantityImageView = (Button)convertView.findViewById(R.id.minus);
+			decreaseQuantityImageView.setOnClickListener(new View.OnClickListener() {
 				  @Override
 				  public void onClick(View view) {
-						String key = groupPosition + "" + childPosition;
+					    String key = (String) getChild(groupPosition, childPosition);
 						SharedPreferences prefs = _context.getSharedPreferences("numItems", Context.MODE_PRIVATE);
 						int value = prefs.getInt(key, 0);
 						SharedPreferences.Editor editor = prefs.edit();
@@ -92,12 +92,12 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 				  }
 				});
 			
-			Button decreaseQuantityImageView = (Button)convertView.findViewById(R.id.plus);
-			decreaseQuantityImageView.setOnClickListener(new View.OnClickListener() {
+			Button increaseQuantityImageView = (Button)convertView.findViewById(R.id.plus);
+			increaseQuantityImageView.setOnClickListener(new View.OnClickListener() {
 
 				  @Override
 				  public void onClick(View view) {
-						String key = groupPosition + "" + childPosition;
+					    String key = (String) getChild(groupPosition, childPosition);
 						SharedPreferences prefs = _context.getSharedPreferences("numItems", Context.MODE_PRIVATE);
 						int value = prefs.getInt(key, 0);
 						SharedPreferences.Editor editor = prefs.edit();
