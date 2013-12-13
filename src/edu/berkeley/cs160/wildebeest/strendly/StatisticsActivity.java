@@ -17,7 +17,7 @@ public class StatisticsActivity extends FragmentActivity implements
     private TabsPagerAdapter mAdapter;
     private ActionBar actionBar;
     // Tab titles
-    private String[] tabs = { "Bar Graph", "Pie Chart", "Line Graph" };
+    private String[] tabs = { "List View", "Bar Graph", "Pie Chart", "Line Graph" };
  
     @SuppressLint("NewApi")
 	@Override

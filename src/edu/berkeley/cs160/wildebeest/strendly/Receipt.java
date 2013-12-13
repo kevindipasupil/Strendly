@@ -71,8 +71,7 @@ public class Receipt extends Activity {
 		Map<String,?> keys = prefs.getAll();
 
 		for(Map.Entry<String,?> entry : keys.entrySet()){
-			Log.d("map values",entry.getKey() + ": " + 
-					entry.getValue().toString());
+			Log.d("map values",entry.getKey() + ": " + entry.getValue().toString());
 			int properVal = (Integer) entry.getValue();
 			if(entry.getKey().equals("00")) {
 				listView_data.add("Pepperoni Pizza" + " (" + String.valueOf(properVal) + ")");

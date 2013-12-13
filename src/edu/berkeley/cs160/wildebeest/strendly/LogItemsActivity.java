@@ -4,11 +4,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Point;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -26,7 +28,9 @@ public class LogItemsActivity extends Activity {
 	ExpandableListView expListView;
 	List<String> listDataHeader;
 	HashMap<String, List<String>> listDataChild;
+	private List<String> allItems = new ArrayList<String>();
 
+	@TargetApi(18)
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -38,6 +42,8 @@ public class LogItemsActivity extends Activity {
 
 		// preparing list data
 		prepareListData();
+		// initializes item history to 0
+		initNumItemHist();
 
 		listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
 
@@ -56,15 +62,15 @@ public class LogItemsActivity extends Activity {
 			expListView.setIndicatorBoundsRelative(width - GetDipsFromPixel(114), width - GetDipsFromPixel(40));
 		}
 	}
-	
+
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		//getMenuInflater().inflate(R.menu.main, menu);
 		MenuInflater inflater = getMenuInflater();
-        //inflater.inflate(R.menu.main_actions, menu);
+		//inflater.inflate(R.menu.main_actions, menu);
 		return true;
-        //return super.onCreateOptionsMenu(menu);
+		//return super.onCreateOptionsMenu(menu);
 	}
 
 	public void receipt(View v) {
@@ -108,9 +114,24 @@ public class LogItemsActivity extends Activity {
 		salad.add("Mixed Greens");
 		salad.add("Pasta");
 
+		allItems.addAll(pizzas);
+		allItems.addAll(sandys);
+		allItems.addAll(salad);
+
 		listDataChild.put(listDataHeader.get(0), pizzas); // Header, Child data
 		listDataChild.put(listDataHeader.get(1), sandys);
 		listDataChild.put(listDataHeader.get(2), salad);
+	}
+
+	private void initNumItemHist() {
+		for (String item : allItems) {
+			String key = item;
+			SharedPreferences prefs = getSharedPreferences("numItems", MODE_PRIVATE);
+			SharedPreferences.Editor editor = prefs.edit();
+			editor.putInt(key, 0);
+			boolean b = editor.commit();
+			Log.d("IS IT COMMITED?", "" + b);
+		}
 	}
 
 	public int GetDipsFromPixel(float pixels)
@@ -120,25 +141,25 @@ public class LogItemsActivity extends Activity {
 		// Convert the dps to pixels, based on density scale
 		return (int) (pixels * scale + 0.5f);
 	}
-	
+
 	@Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Take appropriate action for each action item click
-        switch (item.getItemId()) {
-        case R.id.log:
-        	Intent i = new Intent(this, LogItemsActivity.class);
-    		startActivity(i);
-            return true;
-        case R.id.edit:
-        	Intent i1 = new Intent(this, EditItemsActivity.class);
-        	startActivity(i1);
-            return true;
-        case R.id.stats:
-        	Intent i2 = new Intent(this, BarActivity.class);
-    		startActivity(i2);
-            return true;
-        default:
-            return super.onOptionsItemSelected(item);
-        }
-    }
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Take appropriate action for each action item click
+		switch (item.getItemId()) {
+		case R.id.log:
+			Intent i = new Intent(this, LogItemsActivity.class);
+			startActivity(i);
+			return true;
+		case R.id.edit:
+			Intent i1 = new Intent(this, EditItemsActivity.class);
+			startActivity(i1);
+			return true;
+		case R.id.stats:
+			Intent i2 = new Intent(this, BarActivity.class);
+			startActivity(i2);
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+	}
 }
