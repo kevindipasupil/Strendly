@@ -49,7 +49,7 @@ public class LogItemsActivity extends Activity {
 			initNumItemHist();
 			Log.d("LogItems: onCreate", "Initialized list history to 0");
 		}
-		created = false;
+		created = true;
 
 		listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
 

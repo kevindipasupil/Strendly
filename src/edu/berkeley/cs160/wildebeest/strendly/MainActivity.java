@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -17,12 +18,6 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
-		//clears all entries on app start for now, we'll move this later to some sort of clear button or function.
-		SharedPreferences prefs = getApplicationContext().getSharedPreferences("numItems", MODE_PRIVATE);
-		SharedPreferences.Editor editor = prefs.edit();
-		editor.clear();
-		editor.commit();
 		setContentView(R.layout.activity_main);
 
 		//uses custom font in assets/fonts
