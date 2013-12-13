@@ -81,10 +81,18 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 			decreaseQuantityImageView.setOnClickListener(new View.OnClickListener() {
 				  @Override
 				  public void onClick(View view) {
-					    String key = (String) getChild(groupPosition, childPosition);
-						SharedPreferences prefs = _context.getSharedPreferences("numItems", Context.MODE_PRIVATE);
-						int value = prefs.getInt(key, 0);
-						SharedPreferences.Editor editor = prefs.edit();
+//					    String key = (String) getChild(groupPosition, childPosition) + " " + getGroup(groupPosition);
+//						SharedPreferences prefs = _context.getSharedPreferences("numItems", Context.MODE_PRIVATE);
+//						int value = prefs.getInt(key, 0);
+//						SharedPreferences.Editor editor = prefs.edit();
+//						editor.putInt(key, value - 1);
+//						editor.commit();
+
+						SharedPreferences justLogged = _context.getSharedPreferences("justLoggedItems", Context.MODE_PRIVATE);
+					    String key = (String) getChild(groupPosition, childPosition) + " " + 
+					    		groupNameHelper((String) getGroup(groupPosition));
+						int value = justLogged.getInt(key, 0);
+						SharedPreferences.Editor editor = justLogged.edit();
 						editor.putInt(key, value - 1);
 						editor.commit();
 						Toast.makeText(_context.getApplicationContext(), "Minus Tapped",
@@ -97,10 +105,18 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
 				  @Override
 				  public void onClick(View view) {
-					    String key = (String) getChild(groupPosition, childPosition);
-						SharedPreferences prefs = _context.getSharedPreferences("numItems", Context.MODE_PRIVATE);
-						int value = prefs.getInt(key, 0);
-						SharedPreferences.Editor editor = prefs.edit();
+//					    String key = (String) getChild(groupPosition, childPosition) + " " + getGroup(groupPosition);
+//						SharedPreferences prefs = _context.getSharedPreferences("numItems", Context.MODE_PRIVATE);
+//						int value = prefs.getInt(key, 0);
+//						SharedPreferences.Editor editor = prefs.edit();
+//						editor.putInt(key, value + 1);
+//						editor.commit();
+
+						SharedPreferences justLogged = _context.getSharedPreferences("justLoggedItems", Context.MODE_PRIVATE);
+					    String key = (String) getChild(groupPosition, childPosition) + " " + 
+					    		groupNameHelper((String) getGroup(groupPosition));
+						int value = justLogged.getInt(key, 0);
+						SharedPreferences.Editor editor = justLogged.edit();
 						editor.putInt(key, value + 1);
 						editor.commit();
 						Toast.makeText(_context.getApplicationContext(), "Plus Tapped",
@@ -112,11 +128,20 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 		}
 		return convertView;
 	}
+	
+	private String groupNameHelper(String groupName) {
+		if (groupName.equals("Sandwiches")) {
+			return "Sandwich";
+		} else if (groupName.equals("Salads")) {
+			return "Salad";
+		} else {
+			return "Pizza";
+		}
+	}
 
 	@Override
 	public int getChildrenCount(int groupPosition) {
-		return this._listDataChild.get(this._listDataHeader.get(groupPosition))
-				.size();
+		return this._listDataChild.get(this._listDataHeader.get(groupPosition)).size();
 	}
 
 	@Override

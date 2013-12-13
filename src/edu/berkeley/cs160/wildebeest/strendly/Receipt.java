@@ -64,55 +64,27 @@ public class Receipt extends Activity {
 	}
 
 	protected void populateScrollView() {
-		ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(this, 0);
 		ArrayList<String> listView_data = new ArrayList<String>();
-
+		
 		SharedPreferences prefs = getApplicationContext().getSharedPreferences("numItems", MODE_PRIVATE);
-		Map<String,?> keys = prefs.getAll();
+		
+		// only use per logging session, so clear after using 
+		SharedPreferences justLogged = getApplicationContext().getSharedPreferences("justLoggedItems", MODE_PRIVATE);
+		Map<String,?> keys = justLogged.getAll();
+		SharedPreferences.Editor editor = justLogged.edit();
+		editor.clear();
+		editor.commit();
 
 		for(Map.Entry<String,?> entry : keys.entrySet()){
-			Log.d("map values",entry.getKey() + ": " + entry.getValue().toString());
+			Log.d("Receipt: numItems values", entry.getKey() + ": " + entry.getValue().toString());
 			int properVal = (Integer) entry.getValue();
-			if(entry.getKey().equals("Pepperoni")) {
-				listView_data.add("Pepperoni Pizza" + " (" + String.valueOf(properVal) + ")");
-			} else if(entry.getKey().equals("Hawaiin")) {
-				listView_data.add("Hawaiin Pizza" + " (" + String.valueOf(properVal) + ")");
-			} else if(entry.getKey().equals("Meat Lovers")) {
-				listView_data.add("Meat Lovers Pizza" + " (" + String.valueOf(properVal) + ")");
-			} else if(entry.getKey().equals("Combo")) {
-				listView_data.add("Combo Pizza" + " (" + String.valueOf(properVal) + ")");
-			} else if(entry.getKey().equals("Vegetarian")) {
-				listView_data.add("Vegetarian Pizza" + " (" + String.valueOf(properVal) + ")");
-			} else if(entry.getKey().equals("Pineapple & Jalapeno")) {
-				listView_data.add("Pineapple & Jalapeno Pizza" + " (" + String.valueOf(properVal) + ")");
-			} else if(entry.getKey().equals("Turkey Cranberry")) {
-				listView_data.add("Turkey Cranberry Sandwich" + " (" + String.valueOf(properVal) + ")");
-			} else if(entry.getKey().equals("Chicken Pesto")) {
-				listView_data.add("Chicken Pesto Sandwich" + " (" + String.valueOf(properVal) + ")");
-			} else if(entry.getKey().equals("Veggie")) {
-				listView_data.add("Veggie Sandwich" + " (" + String.valueOf(properVal) + ")");
-			} else if(entry.getKey().equals("Caprese")) {
-				listView_data.add("Caprese Sandwich" + " (" + String.valueOf(properVal) + ")");
-			} else if(entry.getKey().equals("Blackened Halibut")) {
-				listView_data.add("Blackened Halibut Sandwich" + " (" + String.valueOf(properVal) + ")");
-			} else if(entry.getKey().equals("Eggplant")) {
-				listView_data.add("Eggplant Sandwich" + " (" + String.valueOf(properVal) + ")");
-			} else if(entry.getKey().equals("Wedge")) {
-				listView_data.add("Wedge Salad" + " (" + String.valueOf(properVal) + ")");
-			} else if(entry.getKey().equals("Cobb")) {
-				listView_data.add("Cobb Salad" + " (" + String.valueOf(properVal) + ")");
-			} else if(entry.getKey().equals("Chinese Chicken")) {
-				listView_data.add("Chinese Chicken Salad" + " (" + String.valueOf(properVal) + ")");
-			} else if(entry.getKey().equals("Mixed Greens")) {
-				listView_data.add("Mixed Greens Salad" + " (" + String.valueOf(properVal) + ")");
-			} else if(entry.getKey().equals("Pasta")) {
-				listView_data.add("Pasta Salad" + " (" + String.valueOf(properVal) + ")");
-			}
+			listView_data.add(entry.getKey() + " (" + String.valueOf(properVal) + ")");
+			
 			revenue = revenue + (properVal * 5); //assuming here that each item costs 5 dollars.
-			String type = entry.getKey().substring(0, 0);
-			if (type.equals("0")) {
+			String type = entry.getKey().substring(entry.getKey().lastIndexOf(' ') + 1);
+			if (type.equals("Pizza")) {
 				pizzaNum = pizzaNum + 1;
-			} else if (type.equals("1")) {
+			} else if (type.equals("Sandwich")) {
 				sandwhichNum = sandwhichNum + 1;
 			} else {
 				saladNum = saladNum + 1;

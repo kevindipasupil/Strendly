@@ -3,6 +3,7 @@ package edu.berkeley.cs160.wildebeest.strendly;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -46,7 +47,9 @@ public class LogItemsActivity extends Activity {
 		// initializes item history to 0
 		if (!created) {
 			initNumItemHist();
+			Log.d("LogItems: onCreate", "Initialized list history to 0");
 		}
+		created = false;
 
 		listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
 
@@ -110,20 +113,33 @@ public class LogItemsActivity extends Activity {
 		sandys.add("Blackened Halibut");
 		sandys.add("Eggplant");
 
-		List<String> salad = new ArrayList<String>();
-		salad.add("Wedge");
-		salad.add("Cobb");
-		salad.add("Chinese Chicken");
-		salad.add("Mixed Greens");
-		salad.add("Pasta");
+		List<String> salads = new ArrayList<String>();
+		salads.add("Wedge");
+		salads.add("Cobb");
+		salads.add("Chinese Chicken");
+		salads.add("Mixed Greens");
+		salads.add("Pasta");
 
-		allItems.addAll(pizzas);
-		allItems.addAll(sandys);
-		allItems.addAll(salad);
+		// sets all items in allItems with the correct key (item + item_group)
+		ArrayList<String> pizzaList = new ArrayList<String>();
+		for (String pizza : pizzas) {
+			pizzaList.add(pizza + " Pizza");
+		}
+		allItems.addAll(pizzaList);
+		ArrayList<String> sandwichList = new ArrayList<String>();
+		for (String sandwich : sandys) {
+			sandwichList.add(sandwich + " Sandwich");
+		}
+		allItems.addAll(sandwichList);
+		ArrayList<String> saladList = new ArrayList<String>();
+		for (String salad : salads) {
+			saladList.add(salad + " Salad");
+		}
+		allItems.addAll(salads);
 
 		listDataChild.put(listDataHeader.get(0), pizzas); // Header, Child data
 		listDataChild.put(listDataHeader.get(1), sandys);
-		listDataChild.put(listDataHeader.get(2), salad);
+		listDataChild.put(listDataHeader.get(2), salads);
 	}
 
 	private void initNumItemHist() {
@@ -133,9 +149,13 @@ public class LogItemsActivity extends Activity {
 			SharedPreferences.Editor editor = prefs.edit();
 			editor.putInt(key, 0);
 			editor.commit();
-			boolean b = editor.commit();
-			Log.d("IS IT COMMITED?", "" + b);
 		}
+
+		// ensuring that the justLoggedItems history is empty when starting the app
+		SharedPreferences justLogged = getApplicationContext().getSharedPreferences("justLoggedItems", MODE_PRIVATE);
+		SharedPreferences.Editor editor = justLogged.edit();
+		editor.clear();
+		editor.commit();
 	}
 
 	public int GetDipsFromPixel(float pixels)
