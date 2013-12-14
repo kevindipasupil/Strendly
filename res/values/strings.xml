@@ -27,6 +27,7 @@
     <color name="sailorBlue">#3B8686</color>
     <color name="buttonRed">#cc0000</color>
 
+    <string name="spinnerTitle">Category</string>
     <string name="edit">Edit</string>
     <string name="log">Log</string>
     <string name="stats">Statistics</string>

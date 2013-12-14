@@ -18,17 +18,36 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin" >
+        <TextView
+            android:id="@+id/totalSales"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/scroll"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="18dp"
+            android:text="Total Sales: "
+            android:textColor="@color/lightGrey"
+            android:textSize="40sp" />
 
-        
+   		<TextView
+        android:id="@+id/totalSalesNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
 
+        android:layout_toRightOf="@id/totalSales"
+        android:text=""
+        android:textColor="@color/lightGrey"
+        android:textSize="40sp" />
         <ListView
             android:id="@+id/scroll"
             style="@style/receiptList"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
+            android:layout_above="@id/totalSales"
             android:background="@color/white"
             android:textColor="@color/darkGrey" >
         </ListView>
+
         
        
     </RelativeLayout>

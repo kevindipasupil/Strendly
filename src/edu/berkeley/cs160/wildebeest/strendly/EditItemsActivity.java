@@ -18,9 +18,14 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ExpandableListView;
+import android.widget.Spinner;
+import android.widget.AdapterView.OnItemSelectedListener; 
+import android.widget.Toast;
 
 public class EditItemsActivity extends Activity {
 
@@ -28,17 +33,98 @@ public class EditItemsActivity extends Activity {
 	ExpandableListView expListView;
 	List<String> listDataHeader;
 	HashMap<String, List<String>> listDataChild;
+	String[] day;
+	String currCat="";
 
 	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_edit_items);
+		
+		Spinner spinner = (Spinner) findViewById(R.id.spinner);
+
+		ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource( 
+		this, R.array.day, android.R.layout.simple_spinner_item);
+
+		adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); 
+		spinner.setAdapter(adapter);
+
+
+		
+		spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			public void onItemSelected(AdapterView<?> arg0, View arg1, 
+			int arg2, long arg3) {
+
+				int index = arg0.getSelectedItemPosition();
+		
+				// storing string resources into Array 
+				day = getResources().getStringArray(R.array.day);
+				
+				
+				currCat=day[index];
+				
+				Toast.makeText(getBaseContext(), "You have selected : " +day[index], 
+				Toast.LENGTH_SHORT).show();
+
+			}
+
+			public void onNothingSelected(AdapterView<?> arg0) { 
+			// do nothing
+	
+			}
+
+		});
+
+		
+
+	
+		final Button button = (Button) findViewById(R.id.saveChanges);
+		button.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				
+				
+				EditText text = (EditText)findViewById(R.id.newItem);
+				String value = text.getText().toString();
+				
+				
+				if (currCat.equals("Pizza")) {
+					
+					SharedPreferences prefs = getSharedPreferences("pizza", MODE_PRIVATE);
+					SharedPreferences.Editor editor = prefs.edit();
+					editor.putInt(value, 0);
+					editor.commit();
+				} else if (currCat.equals("Salad")) {
+					SharedPreferences prefs = getSharedPreferences("salad", MODE_PRIVATE);
+					SharedPreferences.Editor editor = prefs.edit();
+					editor.putInt(value, 0);
+					editor.commit();
+				} else {
+					SharedPreferences prefs = getSharedPreferences("sandwich", MODE_PRIVATE);
+					SharedPreferences.Editor editor = prefs.edit();
+					editor.putInt(value, 0);
+					editor.commit();
+				}
+				
+				
+				
+				//goes back to the main screen
+				Bundle bundle = new Bundle(); bundle.putString("msg", "The changes were successfully saved.");
+				startActivity(new Intent(v.getContext(), MainActivity.class).putExtras(bundle)); 
+				finish();
+			}
+		});
+		
+		
 
 		// get the listview
-		expListView = (ExpandableListView) findViewById(R.id.lvExpEdit);
+		//expListView = (ExpandableListView) findViewById(R.id.lvExpEdit);
 
 		// preparing list data
+		
+		
+		/**
 		prepareListData();
 
 		listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
@@ -61,12 +147,18 @@ public class EditItemsActivity extends Activity {
 		final Button button = (Button) findViewById(R.id.saveChanges);
 		button.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
+				
+				
+				
+				
+				
 				//goes back to the main screen
 				Bundle bundle = new Bundle(); bundle.putString("msg", "The changes were successfully saved.");
 				startActivity(new Intent(v.getContext(), MainActivity.class).putExtras(bundle)); 
 				finish();
 			}
 		});
+		*/
 	}
 
 	@Override
@@ -88,27 +180,27 @@ public class EditItemsActivity extends Activity {
 
 		// Adding child data
 		List<String> pizzas = new ArrayList<String>();
-		pizzas.add("Pepperoni");
-		pizzas.add("Hawaiian");
-		pizzas.add("Meat Lovers");
-		pizzas.add("Combo");
-		pizzas.add("Vegetarian");
-		pizzas.add("Pineapple & Jalapeno");
+		pizzas.add("");
+		pizzas.add("");
+		pizzas.add("");
+		pizzas.add("");
+		pizzas.add("");
+		pizzas.add("");
 
 		List<String> sandys = new ArrayList<String>();
-		sandys.add("Turkey Cranberry");
-		sandys.add("Chicken Pesto");
-		sandys.add("Veggie");
-		sandys.add("Caprese");
-		sandys.add("Blackened Halibut");
-		sandys.add("Eggplant");
+		sandys.add("");
+		sandys.add("");
+		sandys.add("");
+		sandys.add("");
+		sandys.add("");
+		sandys.add("");
 
 		List<String> salad = new ArrayList<String>();
-		salad.add("Wedge");
-		salad.add("Cobb");
-		salad.add("Chinese Chicken");
-		salad.add("Mixed Greens");
-		salad.add("Pasta");
+		salad.add("");
+		salad.add("");
+		salad.add("");
+		salad.add("");
+		salad.add("");
 
 		listDataChild.put(listDataHeader.get(0), pizzas); // Header, Child data
 		listDataChild.put(listDataHeader.get(1), sandys);
