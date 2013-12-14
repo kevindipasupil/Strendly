@@ -9,12 +9,58 @@
         android:id="@+id/statistics"
         style="@style/activityTitle"
         android:text="@string/title_activity_statistics" />
+  
+
+      <TextView
+        android:id="@+id/t0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/statistics"
+        android:text=""
+        android:textColor="@color/lightGrey"
+        android:textSize="30sp" />
+
+       <TextView
+        android:id="@+id/t1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/t0"
+        android:text=" "
+        android:textColor="@color/lightGrey"
+        android:textSize="30sp" />
+       
+       <TextView
+        android:id="@+id/t2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/t1"
+        android:text=" "
+        android:textColor="@color/lightGrey"
+        android:textSize="30sp" />
+       
+       <TextView
+        android:id="@+id/t3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/t2"
+        android:text=" "
+        android:textColor="@color/lightGrey"
+        android:textSize="30sp" />
+       
+       <TextView
+        android:id="@+id/t4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/t3"
+        android:text=" "
+        android:textColor="@color/lightGrey"
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/totalSales"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/statistics"
+        android:layout_below="@id/t4"
         android:text="Total Sales: "
         android:textColor="@color/lightGrey"
         android:textSize="40sp" />
@@ -23,9 +69,9 @@
         android:id="@+id/totalSalesNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/statistics"
+        android:layout_below="@id/t4"
         android:layout_toRightOf="@id/totalSales"
-        android:text="T"
+        android:text=""
         android:textColor="@color/lightGrey"
         android:textSize="40sp" />
 
