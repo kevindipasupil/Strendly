@@ -19,8 +19,10 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.echo.holographlibrary.Bar;
@@ -33,7 +35,7 @@ public class ListViewFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-
+		
 		View rootView = inflater.inflate(R.layout.fragment_list_view, container, false);
 		
 
@@ -66,7 +68,7 @@ public class ListViewFragment extends Fragment {
 	//    }
 	
 	private void setBarGraph(View v) {
-
+		ListView scrollView = (ListView) v.findViewById(R.id.scroll);
 		SharedPreferences prefs = getActivity().getApplicationContext().getSharedPreferences("numItems", Context.MODE_PRIVATE);
 		Map<String,?> keys = prefs.getAll();
 		Log.d("BarGraph: numItems count", "The count is " + prefs.getAll().size());
@@ -74,12 +76,16 @@ public class ListViewFragment extends Fragment {
 		ArrayList<Bar> points = new ArrayList<Bar>();
 		int i = 0;
 		int total = 0;
+		ArrayList<String> listView_data = new ArrayList<String>();
+		
 		for(Map.Entry<String,?> entry : topFiveItems) {
 			//Bar d = new Bar();
 			int properVal = (Integer) entry.getValue();
 			String key = entry.getKey();
 			total+= properVal;
 			TextView t;
+			listView_data.add(key+ ": " + properVal);
+			/**
 			switch(i){
 		    case 0 :
 		    	t=(TextView)v.findViewById(R.id.t0); 
@@ -101,8 +107,10 @@ public class ListViewFragment extends Fragment {
 		    	t=(TextView)v.findViewById(R.id.t4); 
 		    	t.append(key + ": " + properVal+ "\n");
 		    	break;
+		    	
 		    
-		}
+			}
+			*/
 		
 			//d.setColor(Color.parseColor("#4ea0ab"));
 //			d.setColor(Color.parseColor("#99CC00"));
@@ -110,8 +118,8 @@ public class ListViewFragment extends Fragment {
 //			d.setColor(Color.parseColor("#FFBB33"));
 //			d.setColor(Color.parseColor("#FF5533"));
 		}
-		TextView t=(TextView)v.findViewById(R.id.totalSalesNum);
-		t.append(""+total);
+		//TextView t=(TextView)v.findViewById(R.id.totalSalesNum);
+		//t.append(""+total);
 		/**
 		BarGraph g = (BarGraph)v.findViewById(R.id.barGraph);
 		g.setBars(points);
@@ -119,6 +127,8 @@ public class ListViewFragment extends Fragment {
 		g.setUnit(" ");
 		g.appendUnit(true);
 		*/
+		listView_data.add("Total Sales: " + total);
+		scrollView.setAdapter(new ArrayAdapter<String>(v.getContext(), android.R.layout.simple_list_item_1, listView_data));
 	}
 	
 	private ArrayList<Map.Entry<String,?>> sortTopFive(Map<String,?> map) {
