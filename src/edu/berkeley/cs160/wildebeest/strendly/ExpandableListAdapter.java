@@ -81,13 +81,6 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 			decreaseQuantityImageView.setOnClickListener(new View.OnClickListener() {
 				  @Override
 				  public void onClick(View view) {
-//					    String key = (String) getChild(groupPosition, childPosition) + " " + getGroup(groupPosition);
-//						SharedPreferences prefs = _context.getSharedPreferences("numItems", Context.MODE_PRIVATE);
-//						int value = prefs.getInt(key, 0);
-//						SharedPreferences.Editor editor = prefs.edit();
-//						editor.putInt(key, value - 1);
-//						editor.commit();
-
 						SharedPreferences justLogged = _context.getSharedPreferences("justLoggedItems", Context.MODE_PRIVATE);
 					    String key = (String) getChild(groupPosition, childPosition) + " " + 
 					    		groupNameHelper((String) getGroup(groupPosition));
@@ -105,13 +98,6 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
 				  @Override
 				  public void onClick(View view) {
-//					    String key = (String) getChild(groupPosition, childPosition) + " " + getGroup(groupPosition);
-//						SharedPreferences prefs = _context.getSharedPreferences("numItems", Context.MODE_PRIVATE);
-//						int value = prefs.getInt(key, 0);
-//						SharedPreferences.Editor editor = prefs.edit();
-//						editor.putInt(key, value + 1);
-//						editor.commit();
-
 						SharedPreferences justLogged = _context.getSharedPreferences("justLoggedItems", Context.MODE_PRIVATE);
 					    String key = (String) getChild(groupPosition, childPosition) + " " + 
 					    		groupNameHelper((String) getGroup(groupPosition));
