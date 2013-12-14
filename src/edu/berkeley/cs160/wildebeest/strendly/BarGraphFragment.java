@@ -37,50 +37,39 @@ public class BarGraphFragment extends Fragment {
 	private void setBarGraph(View v) {
 
 		SharedPreferences prefs = getActivity().getApplicationContext().getSharedPreferences("numItems", Context.MODE_PRIVATE);
-//		Map<String,?> keys = prefs.getAll();
-		Log.d("BarGraph: MAP COUNT", "THE COUNT IS " + prefs.getAll().size());
-//		ArrayList<Map.Entry<String,?>> topFiveItems = sortTopFive(prefs.getAll());
+		Map<String,?> keys = prefs.getAll();
+		Log.d("BarGraph: numItems count", "The count is " + prefs.getAll().size());
+		ArrayList<Map.Entry<String,?>> topFiveItems = sortTopFive(prefs.getAll());
 		ArrayList<Bar> points = new ArrayList<Bar>();
-//
-//		for(Map.Entry<String,?> entry : keys.entrySet()) {
-//			Bar d = new Bar();
-//			int properVal = (Integer) entry.getValue();
+
+		for(Map.Entry<String,?> entry : topFiveItems) {
+			Bar d = new Bar();
+			int properVal = (Integer) entry.getValue();
+			String key = entry.getKey();
+			d.setColor(Color.parseColor("#4ea0ab"));
 //			d.setColor(Color.parseColor("#99CC00"));
-//			d.setName(entry.getKey());
-//			d.setValue(properVal);
-//			points.add(d);
-//		}
-
-//		for(Map.Entry<String,?> entry : topFiveItems) {
-//			Bar d = new Bar();
-//			int properVal = (Integer) entry.getValue();
-//			d.setColor(Color.parseColor("#99CC00"));
-//			d.setName(entry.getKey());
-//			Log.d("VALUEESSSSS", "Val should be " + properVal);
-//			d.setValue(properVal);
-//			points.add(d);
-//		}
-
-		Bar d = new Bar();
-		d.setColor(Color.parseColor("#99CC00"));
-		d.setName("Pepperoni Pizza");
-		d.setValue(20);
-		Bar d2 = new Bar();
-		d2.setColor(Color.parseColor("#FFBB33"));
-		d2.setName("Turkey Cranberry");
-		d2.setValue(10);
-		points.add(d);
-		points.add(d2);
-
+//			d.setColor(Color.parseColor("#CC99FF"));
+//			d.setColor(Color.parseColor("#FFBB33"));
+//			d.setColor(Color.parseColor("#FF5533"));
+			d.setName(key.replaceAll(" [^ ]+$", "")); //removes item type (last word) cuz it's too long
+			Log.d("BarGraph: topFiveItems", key + " value is " + properVal);
+			d.setValue(properVal);
+			points.add(d);
+		}
+		
 		BarGraph g = (BarGraph)v.findViewById(R.id.barGraph);
 		g.setBars(points);
-		// idk what this does...
+		// the library defaults to $
+		g.setUnit(" ");
 		g.appendUnit(true);
 	}
+	
+//	private String removeGroupHelper(String str) {
+//		str.split
+//	}
 
 	private ArrayList<Map.Entry<String,?>> sortTopFive(Map<String,?> map) {
-		List list = new LinkedList(map.entrySet());
-		Log.d("THIS IS THE LIST SIZE", "It is " + list.size());
+		List<Map.Entry<String,?>> list = new LinkedList<Entry<String, ?>>(map.entrySet());
 //	    Comparator<Number> c = Collections.reverseOrder();
 //	    Collections.sort(list, c);
 
@@ -92,6 +81,7 @@ public class BarGraphFragment extends Fragment {
 			}
 		});
 	    
+		Collections.reverse(list);
 	    ArrayList<Map.Entry<String,?>> topFive = new ArrayList<Map.Entry<String,?>>();
 	    for (int i = 0; i < 5; i++) {
 	    	topFive.add((Entry<String, ?>) list.get(i));

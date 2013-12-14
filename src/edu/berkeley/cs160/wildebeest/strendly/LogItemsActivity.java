@@ -3,19 +3,14 @@ package edu.berkeley.cs160.wildebeest.strendly;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Point;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.Display;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -126,16 +121,18 @@ public class LogItemsActivity extends Activity {
 			pizzaList.add(pizza + " Pizza");
 		}
 		allItems.addAll(pizzaList);
+		
 		ArrayList<String> sandwichList = new ArrayList<String>();
 		for (String sandwich : sandys) {
 			sandwichList.add(sandwich + " Sandwich");
 		}
 		allItems.addAll(sandwichList);
+		
 		ArrayList<String> saladList = new ArrayList<String>();
 		for (String salad : salads) {
 			saladList.add(salad + " Salad");
 		}
-		allItems.addAll(salads);
+		allItems.addAll(saladList);
 
 		listDataChild.put(listDataHeader.get(0), pizzas); // Header, Child data
 		listDataChild.put(listDataHeader.get(1), sandys);
@@ -143,19 +140,26 @@ public class LogItemsActivity extends Activity {
 	}
 
 	private void initNumItemHist() {
+		// ensuring that the numItems history is empty when starting the app
+		SharedPreferences numItems = getApplicationContext().getSharedPreferences("numItems", MODE_PRIVATE);
+		SharedPreferences.Editor numItemsEditor = numItems.edit();
+		numItemsEditor.clear();
+		numItemsEditor.commit();
+		
+		SharedPreferences prefs = getSharedPreferences("numItems", MODE_PRIVATE);
+		SharedPreferences.Editor editor = prefs.edit();
 		for (String item : allItems) {
 			String key = item;
-			SharedPreferences prefs = getSharedPreferences("numItems", MODE_PRIVATE);
-			SharedPreferences.Editor editor = prefs.edit();
 			editor.putInt(key, 0);
 			editor.commit();
 		}
+		Log.d("LogItems: onCreate", "Size of numItems is " + prefs.getAll().size());
 
 		// ensuring that the justLoggedItems history is empty when starting the app
 		SharedPreferences justLogged = getApplicationContext().getSharedPreferences("justLoggedItems", MODE_PRIVATE);
-		SharedPreferences.Editor editor = justLogged.edit();
-		editor.clear();
-		editor.commit();
+		SharedPreferences.Editor justLoggedEditor = justLogged.edit();
+		justLoggedEditor.clear();
+		justLoggedEditor.commit();
 	}
 
 	public int GetDipsFromPixel(float pixels)
