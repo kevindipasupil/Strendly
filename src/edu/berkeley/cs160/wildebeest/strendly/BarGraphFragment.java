@@ -37,7 +37,6 @@ public class BarGraphFragment extends Fragment {
 	private void setBarGraph(View v) {
 
 		SharedPreferences prefs = getActivity().getApplicationContext().getSharedPreferences("numItems", Context.MODE_PRIVATE);
-		Map<String,?> keys = prefs.getAll();
 		Log.d("BarGraph: numItems count", "The count is " + prefs.getAll().size());
 		ArrayList<Map.Entry<String,?>> topFiveItems = sortTopFive(prefs.getAll());
 		ArrayList<Bar> points = new ArrayList<Bar>();
@@ -48,7 +47,7 @@ public class BarGraphFragment extends Fragment {
 			String key = entry.getKey();
 			d.setColor(Color.parseColor("#4ea0ab"));
 //			d.setColor(Color.parseColor("#99CC00"));
-//			d.setColor(Color.parseColor("#CC99FF"));
+//			d.setColor(Color.parseColor("#AA66CC"));
 //			d.setColor(Color.parseColor("#FFBB33"));
 //			d.setColor(Color.parseColor("#FF5533"));
 			d.setName(key.replaceAll(" [^ ]+$", "")); //removes item type (last word) cuz it's too long
@@ -63,15 +62,9 @@ public class BarGraphFragment extends Fragment {
 		g.setUnit(" ");
 		g.appendUnit(true);
 	}
-	
-//	private String removeGroupHelper(String str) {
-//		str.split
-//	}
 
 	private ArrayList<Map.Entry<String,?>> sortTopFive(Map<String,?> map) {
 		List<Map.Entry<String,?>> list = new LinkedList<Entry<String, ?>>(map.entrySet());
-//	    Comparator<Number> c = Collections.reverseOrder();
-//	    Collections.sort(list, c);
 
 		// sort list based on comparator
 		Collections.sort(list, new Comparator() {
