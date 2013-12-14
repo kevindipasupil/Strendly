@@ -7,6 +7,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +16,6 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -70,51 +71,69 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 				convertView = infalInflater.inflate(R.layout.list_item_edit_items, null);
 				EditText editTxtListChild = (EditText) convertView.findViewById(R.id.itemName);
 				editTxtListChild.setText(childText);
+
+				editTxtListChild.addTextChangedListener(
+						// EditTextWacther  Implementation
+						TextWatcher mTextEditorWatcher = new TextWatcher() {
+							public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+							}
+							public void onTextChanged(CharSequence s, int start, int before, int count) {
+								SharedPreferences editItemsPrefs = _context.getSharedPreferences("editItems", Context.MODE_PRIVATE);
+								int value = editItemsPrefs.getInt(key, 0);
+								SharedPreferences.Editor editItemsEditor = editItemsPrefs.edit();
+								editItemsEditor.putInt(key, value + 1);
+								editItemsEditor.commit();
+								Toast.makeText(_context.getApplicationContext(), "Plus Tapped", Toast.LENGTH_LONG).show();
+							}
+
+							public void afterTextChanged(Editable s) {
+							}
+						});
 			}
 		}
-		
+
 		if (this._context.getClass().getSimpleName().equals("LogItemsActivity")) {
 			TextView txtListChild = (TextView) convertView.findViewById(R.id.lblListItem);
 			txtListChild.setText(childText);
 
 			Button decreaseQuantityImageView = (Button)convertView.findViewById(R.id.minus);
 			decreaseQuantityImageView.setOnClickListener(new View.OnClickListener() {
-				  @Override
-				  public void onClick(View view) {
-						SharedPreferences justLogged = _context.getSharedPreferences("justLoggedItems", Context.MODE_PRIVATE);
-					    String key = (String) getChild(groupPosition, childPosition) + " " + 
-					    		groupNameHelper((String) getGroup(groupPosition));
-						int value = justLogged.getInt(key, 0);
-						SharedPreferences.Editor editor = justLogged.edit();
-						editor.putInt(key, value - 1);
-						editor.commit();
-						Toast.makeText(_context.getApplicationContext(), "Minus Tapped",
-								   Toast.LENGTH_LONG).show();
-				  }
-				});
-			
+				@Override
+				public void onClick(View view) {
+					SharedPreferences justLogged = _context.getSharedPreferences("justLoggedItems", Context.MODE_PRIVATE);
+					String key = (String) getChild(groupPosition, childPosition) + " " + 
+							groupNameHelper((String) getGroup(groupPosition));
+					int value = justLogged.getInt(key, 0);
+					SharedPreferences.Editor editor = justLogged.edit();
+					editor.putInt(key, value - 1);
+					editor.commit();
+					Toast.makeText(_context.getApplicationContext(), "Minus Tapped",
+							Toast.LENGTH_LONG).show();
+				}
+			});
+
 			Button increaseQuantityImageView = (Button)convertView.findViewById(R.id.plus);
 			increaseQuantityImageView.setOnClickListener(new View.OnClickListener() {
 
-				  @Override
-				  public void onClick(View view) {
-						SharedPreferences justLogged = _context.getSharedPreferences("justLoggedItems", Context.MODE_PRIVATE);
-					    String key = (String) getChild(groupPosition, childPosition) + " " + 
-					    		groupNameHelper((String) getGroup(groupPosition));
-						int value = justLogged.getInt(key, 0);
-						SharedPreferences.Editor editor = justLogged.edit();
-						editor.putInt(key, value + 1);
-						editor.commit();
-						Toast.makeText(_context.getApplicationContext(), "Plus Tapped",
-								   Toast.LENGTH_LONG).show();
-				  }});
+				@Override
+				public void onClick(View view) {
+					SharedPreferences justLogged = _context.getSharedPreferences("justLoggedItems", Context.MODE_PRIVATE);
+					String key = (String) getChild(groupPosition, childPosition) + " " + 
+							groupNameHelper((String) getGroup(groupPosition));
+					int value = justLogged.getInt(key, 0);
+					SharedPreferences.Editor editor = justLogged.edit();
+					editor.putInt(key, value + 1);
+					editor.commit();
+					Toast.makeText(_context.getApplicationContext(), "Plus Tapped",
+							Toast.LENGTH_LONG).show();
+				}});
 		} else if (this._context.getClass().getSimpleName().equals("EditItemsActivity")) {
 			EditText editTxtListChild = (EditText) convertView.findViewById(R.id.itemName);
 			editTxtListChild.setText(childText);
 		}
 		return convertView;
 	}
-	
+
 	private String groupNameHelper(String groupName) {
 		if (groupName.equals("Sandwiches")) {
 			return "Sandwich";
@@ -172,4 +191,5 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 	public boolean isChildSelectable(int groupPosition, int childPosition) {
 		return true;
 	}
+
 }

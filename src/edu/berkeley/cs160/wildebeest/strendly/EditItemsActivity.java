@@ -76,18 +76,6 @@ public class EditItemsActivity extends Activity {
         //inflater.inflate(R.menu.main_actions, menu);
 		return true;
 	}
-	//	
-	//    public boolean addItem() {
-	//    	//TODO: Add some sort of feedback!
-	//    	Log.d("ListClick", "ListClick" + groupPosition + childPosition + "");
-	//    	String key = groupPosition + "" + childPosition;
-	//    	SharedPreferences prefs = _context.getSharedPreferences("numItems", Context.MODE_PRIVATE);
-	//    	int value = prefs.getInt(key, 0);
-	//    	SharedPreferences.Editor editor = prefs.edit();
-	//    	editor.putInt(key, value + 1);
-	//    	editor.commit();
-	//        return true;
-	//    }
 
 	private void prepareListData() {
 		listDataHeader = new ArrayList<String>();
@@ -134,24 +122,25 @@ public class EditItemsActivity extends Activity {
 		// Convert the dps to pixels, based on density scale
 		return (int) (pixels * scale + 0.5f);
 	}
-	@Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Take appropriate action for each action item click
-        switch (item.getItemId()) {
-        case R.id.log:
-        	Intent i = new Intent(this, LogItemsActivity.class);
-    		startActivity(i);
-            return true;
-        case R.id.edit:
-        	Intent i1 = new Intent(this, EditItemsActivity.class);
-        	startActivity(i1);
-            return true;
-        case R.id.stats:
-        	Intent i2 = new Intent(this, BarActivity.class);
-    		startActivity(i2);
-            return true;
-        default:
-            return super.onOptionsItemSelected(item);
-        }
-    }
+	
+//	@Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//        // Take appropriate action for each action item click
+//        switch (item.getItemId()) {
+//        case R.id.log:
+//        	Intent i = new Intent(this, LogItemsActivity.class);
+//    		startActivity(i);
+//            return true;
+//        case R.id.edit:
+//        	Intent i1 = new Intent(this, EditItemsActivity.class);
+//        	startActivity(i1);
+//            return true;
+//        case R.id.stats:
+//        	Intent i2 = new Intent(this, BarActivity.class);
+//    		startActivity(i2);
+//            return true;
+//        default:
+//            return super.onOptionsItemSelected(item);
+//        }
+//    }
 }
