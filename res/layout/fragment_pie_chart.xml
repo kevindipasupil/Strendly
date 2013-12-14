@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:background="@color/darkGrey"
     android:orientation="vertical" >
-    <TextView
+
+    <TextView
         android:id="@+id/statistics"
         style="@style/activityTitle"
         android:text="@string/title_activity_statistics" />
@@ -12,7 +13,18 @@
     <com.echo.holographlibrary.PieGraph
         android:id="@+id/pieGraph"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="fill_parent"
         android:layout_centerVertical="true" />
+
+    <TextView
+        android:id="@+id/topFivePies"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pieGraph"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="Top 5 Items"
+        android:textColor="@color/white"
+        android:textSize="40sp" />
 
 </RelativeLayout>
