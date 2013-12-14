@@ -118,8 +118,8 @@ public class ListViewFragment extends Fragment {
 //			d.setColor(Color.parseColor("#FFBB33"));
 //			d.setColor(Color.parseColor("#FF5533"));
 		}
-		//TextView t=(TextView)v.findViewById(R.id.totalSalesNum);
-		//t.append(""+total);
+		TextView t=(TextView)v.findViewById(R.id.totalSales);
+		t.append(""+total);
 		/**
 		BarGraph g = (BarGraph)v.findViewById(R.id.barGraph);
 		g.setBars(points);
@@ -127,7 +127,7 @@ public class ListViewFragment extends Fragment {
 		g.setUnit(" ");
 		g.appendUnit(true);
 		*/
-		listView_data.add("Total Sales: " + total);
+		//listView_data.add("Total Sales: " + total);
 		scrollView.setAdapter(new ArrayAdapter<String>(v.getContext(), android.R.layout.simple_list_item_1, listView_data));
 	}
 	
