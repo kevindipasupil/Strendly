@@ -45,16 +45,22 @@ public class PieChartFragment extends Fragment {
 		Log.d("PieChart: numItems count", "The count is " + prefs.getAll().size());
 		ArrayList<Map.Entry<String,?>> topFiveItems = sortTopFive(prefs.getAll());
 
+		// color stuff
+		List<String> colorLs = new ArrayList<String>();
+		colorLs.add("#4ea0ab");
+		colorLs.add("#99CC00");
+		colorLs.add("#AA66CC");
+		colorLs.add("#FFBB33");
+		colorLs.add("#FF5533");
+		int colorCounter = 0;
+
 		PieGraph pg = (PieGraph)v.findViewById(R.id.pieGraph);
 		for(Map.Entry<String,?> entry : topFiveItems) {
 			PieSlice slice = new PieSlice();
 			int properVal = (Integer) entry.getValue();
 			String key = entry.getKey();
-			slice.setColor(Color.parseColor("#4ea0ab"));
-//			d.setColor(Color.parseColor("#99CC00"));
-//			d.setColor(Color.parseColor("#AA66CC"));
-//			d.setColor(Color.parseColor("#FFBB33"));
-//			d.setColor(Color.parseColor("#FF5533"));
+			slice.setColor(Color.parseColor(colorLs.get(colorCounter)));
+			colorCounter++;
 			Log.d("PieChart: topFiveItems", key + " value is " + properVal);
 			slice.setValue(properVal);
 			pg.addSlice(slice);

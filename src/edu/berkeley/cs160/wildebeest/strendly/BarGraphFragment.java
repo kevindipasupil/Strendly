@@ -41,15 +41,21 @@ public class BarGraphFragment extends Fragment {
 		ArrayList<Map.Entry<String,?>> topFiveItems = sortTopFive(prefs.getAll());
 		ArrayList<Bar> points = new ArrayList<Bar>();
 
+		// color stuff
+		List<String> colorLs = new ArrayList<String>();
+		colorLs.add("#4ea0ab");
+		colorLs.add("#99CC00");
+		colorLs.add("#AA66CC");
+		colorLs.add("#FFBB33");
+		colorLs.add("#FF5533");
+		int colorCounter = 0;
+		
 		for(Map.Entry<String,?> entry : topFiveItems) {
 			Bar d = new Bar();
 			int properVal = (Integer) entry.getValue();
 			String key = entry.getKey();
-			d.setColor(Color.parseColor("#4ea0ab"));
-//			d.setColor(Color.parseColor("#99CC00"));
-//			d.setColor(Color.parseColor("#AA66CC"));
-//			d.setColor(Color.parseColor("#FFBB33"));
-//			d.setColor(Color.parseColor("#FF5533"));
+			d.setColor(Color.parseColor(colorLs.get(colorCounter)));
+			colorCounter++;
 			d.setName(key.replaceAll(" [^ ]+$", "")); //removes item type (last word) cuz it's too long
 			Log.d("BarGraph: topFiveItems", key + " value is " + properVal);
 			d.setValue(properVal);
