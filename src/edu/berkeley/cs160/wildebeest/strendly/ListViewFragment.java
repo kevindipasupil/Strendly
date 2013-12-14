@@ -71,6 +71,10 @@ public class ListViewFragment extends Fragment {
 		ListView scrollView = (ListView) v.findViewById(R.id.scroll);
 		SharedPreferences prefs = getActivity().getApplicationContext().getSharedPreferences("numItems", Context.MODE_PRIVATE);
 		Map<String,?> keys = prefs.getAll();
+		
+		
+		
+		
 		Log.d("BarGraph: numItems count", "The count is " + prefs.getAll().size());
 		ArrayList<Map.Entry<String,?>> topFiveItems = sortTopFive(prefs.getAll());
 		ArrayList<Bar> points = new ArrayList<Bar>();
